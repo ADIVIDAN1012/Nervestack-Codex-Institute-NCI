@@ -6,7 +6,7 @@
   "publisher": "NervestackNCI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/NervestackNCI/nervestack-vscode-extension.git"
+    "url": "https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI.git"
   },
   "icon": "icon.png",
   "engines": {

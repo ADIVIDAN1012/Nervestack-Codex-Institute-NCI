@@ -1,131 +1,51 @@
-# Release Notes - v2.0.0: Pack Collections & Unique Features
+# Release Notes - v2.0.0: The Nervestack Revolution
 
-## 🎉 Major Update: Pack Collections and OOP Enhancements
+## 🎉 Major Update: Rebranded, Optimized, and Simplified
 
-Nervestack v2.0.0 introduces powerful new features that make the language even more expressive and unique!
+Nervestack (NSPL) v2.0.0 is a complete reimagining of the language, focused on being the **easiest to read** and the **fastest to run**.
 
 ### ✨ What's New
 
-**Pack Collections** 🎒
+**Easiest to Read (UOP Philosophy)** 🧠
+- Refined natural language syntax: `when`, `otherwise`, `spec`, `with`, `giving`, `done`.
+- Intuitive member access with the `~>` operator.
+- Simplified documentation: "Syntax in 5 Minutes" and clear, friendly guides.
 
-- New `pack(items)` syntax for creating data collections
-- Support for mixed-type collections: `pack(1, "hello", On)`
-- Clean string representation
-- Runtime interpretation for flexible data handling
+**Fastest to Run (C++ Synergy)** 🚀
+- **Backend Migration**: The runtime engine has been transitioned from C to **C++** for better performance and maintainability.
+- **Dual-Engine Power**: Python-based intelligent parsing meets high-performance C++ execution.
 
-**Traverse Loops** 🔁
+**VS Code Extension v2.0.0** 🧩
+- Full syntax highlighting for `.nspl` files.
+- Integrated Nervestack Dark theme.
+- Support for new keywords: `pack`, `unpack`, `spec`, `prep`, etc.
 
-- New `traverse i from start to end` syntax
-- Replaces legacy `each` and `..` conventions
-- Cleaner, more English-like iteration
-
-**Blueprint/Spawn OOP Improvements** 🏗️
-
-- Added `spec` keyword for method declarations
-- Added `prep` keyword for constructors (alongside `make`)
-- Enhanced parser support for complex OOP structures
-
-**Accurate Documentation** 📚
-
-- Created comprehensive `comparison.md` comparing Nervestack vs Java/C/Python
-- Updated website with honest runtime description (C-powered JSON AST interpreter)
-- Fixed all misleading dual-mode claims
-
-### 🔧 Pack Collections Usage
-
-```Nervestack
-< Basic pack >
-firm nums = pack(1, 2, 3)
-show "Numbers: |nums|"
-
-< Mixed types >
-firm data = pack("hello", 42, On)
-
-< Empty pack >
-firm empty = pack()
-
-< Pack with expressions >
-firm calculated = pack(10 + 5, 20 * 2)
-```
-
-### 🔁 Traverse Loops
-
-```Nervestack
-traverse i from 1 to 5:
-    show "Count: |i|"
-done
-```
-
-### 📝 Blueprint/Spawn Enhancements
-
-```Nervestack
-blueprint Animal:
-    has name
-    has age
-
-    prep (n, age_val):
-        own~>name = n
-        own~>age = age_val
-    done
-
-    spec speak:
-        show "Animal speaks"
-    done
-done
-
-firm dog = spawn Animal("Rex", 3)
-```
-
-### 🔨 Implementation Details
-
-**Frontend Changes:**
-
-- Added `pack` and `unpack` keywords to lexer
-- Updated parser to handle `pack(items)` as expression
-- Enhanced blueprint parsing for `spec`/`prep` syntax
-
-**Backend Changes:**
-
-- Implemented `PackNode` JSON parsing in `main.cpp`
-- Added pack interpretation with string representation
-- Fixed `TriggerNode` JSON serialization
-
-**Website & Documentation:**
-
-- Updated website to v2.0.0 with accurate content
-- Removed false "dual execution modes" claims
-- Added pack collections feature showcase
-- Fixed syntax examples (removed parentheses from `show`/`ask`)
-- Updated VS Code extension to v2.0.0
-
-### 📦 Downloads
-
-**Latest Release:** [v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/releases/tag/v2.0.0)
-
-- **NSPL.exe** - C++ runtime interpreter (near-native performance)
-- **Nervestack-2.0.0.vsix** - VS Code extension with pack/unpack support
-
-### 🐛 Bug Fixes
-
-- Fixed `TriggerNode` serialization in JSON AST
-- Resolved parser issues with constructor parameters
-- Fixed string interpolation in method bodies
-
-### 📚 Documentation
-
-- [comparison.md](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/blob/master/comparison.md) - Language comparison guide
-- [Website](https://adividan1012.github.io/Nervestack-NCI/) - Updated with v2.0 features
+**Pack Collections** 📦
+- New `pack(items)` syntax for flexible, mixed-type data collections.
 
 ---
 
-**Full Changelog**: [v1.0.0...v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/compare/v1.0.0...v2.0.0)
-
-**Execution**:
+### 🛠️ Execution
 
 ```bash
-# Compile .NSPL to JSON AST
-python -m src.frontend.parser program.NSPL
-
-# Execute with C++ runtime
-NSPL.exe program.NSPL.json
+# Run any Nervestack file instantly
+python run_file.py your_code.nspl
 ```
+
+### 📦 Downloads
+
+**Latest Release Assets:**
+- **NSPL Engine (main.exe)** - High-performance C++ runtime.
+- **Nervestack Extension (nervestack-2.0.0.vsix)** - Official VS Code support.
+
+---
+
+### 📖 Documentation
+
+- [Syntax Guide](Syntax.md)
+- [Keywords Reference](Keywords.md)
+- [The UOP Philosophy](UOP.md)
+
+**Full Changelog**: [v1.0.0...v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/compare/v1.0.0...v2.0.0)
+
+Copyright © 2026 Nervestack Codex Institute (NCI).

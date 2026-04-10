@@ -1,141 +1,90 @@
-# Nervestack Programming Language (NSPL)
+# 🧠 Nervestack (NSPL)
+### The Easiest to Read. The Fastest to Run.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Nervestack is a futuristic, **Universal User-oriented Programming (UOP)** language designed for the next era of software engineering. It integrates **Object-Oriented Programming (OOP)** with a natural, English-like syntax. This unique combination prioritizes readability and user intuition while maintaining the structural benefits of high-performance execution.
+Nervestack is a futuristic **Universal User-oriented Programming (UOP)** language. It's designed to be as readable as English while running with the blazing speed of C++.
 
-## 🚀 The Synergy: Python + C++
+---
 
-Nervestack is designed for both **ease of use** and **raw performance**:
-- **Python Frontend**: A flexible, intelligent lexer and parser written in Python handles the complex task of understanding natural language syntax and generating an Abstract Syntax Tree (AST).
-- **C++ Runtime**: A high-performance execution engine written in C++ interprets the AST, providing the speed and efficiency required for demanding applications.
+## ⚡ Quick Start (30 Seconds)
 
-This dual-layered architecture ensures that you can write code as naturally as speaking, while your programs run with the efficiency of a compiled language.
+1. **Clone & Build**
+   ```bash
+   git clone https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI.git
+   cd Nervestack-Codex-Institute-NCI
+   cd src/runtime; .\build.bat; cd ../..
+   ```
 
-## Key Features
+2. **Write your first program** (`hello.nspl`)
+   ```nervestack
+   show "Hello, Nervestack!"
+   ```
 
-- **Natural Language Syntax**: Keywords like `when`, `otherwise`, `traverse`, and `spec` make code readable.
-- **Dynamic Typing with Type Inference**: Automatic type detection during I/O and assignments.
-- **Object-Oriented Architecture**: Full support for classes (`blueprint`), inheritance (`adopt`), and members.
-- **High Performance**: Powered by a dedicated C++-based runtime engine.
-- **Error Handling**: Structured exception handling using `attempt`, `trap`, and `conclude` blocks.
+3. **Run it instantly**
+   ```bash
+   python run_file.py hello.nspl
+   ```
 
-## Feature Support Status
+---
 
-| Feature Category     | Implementation Status | Notes                                                             |
-| :------------------- | :-------------------- | :---------------------------------------------------------------- |
-| **Core Syntax**      | ✅ **Stable**         | Variables, Functions, I/O, Comments, Docstrings                   |
-| **Control Flow**     | ✅ **Stable**         | `when`/`otherwise`, `traverse`/`until`, `attempt`/`trap`          |
-| **Data Types**       | ✅ **Stable**         | Dynamic typing (`firm`), Type Conversion, String Interpolation    |
-| **Collections**      | ✅ **Stable**         | `pack`/`unpack` for data collections (v2.0)                       |
-| **Object-Oriented**  | ✅ **Stable**         | Classes (`blueprint`), Single Inheritance (`adopt`), Properties   |
-| **Standard Library** | ✅ **Stable**         | Basic I/O, Math, String manipulation                              |
-| **Concurrency**      | ⚠️ **Experimental**   | Keywords (`paral`, `signal`) defined; runtime currently limited   |
-| **Modules**          | ⚠️ **Experimental**   | Syntax (`toolkit`, `plug`) defined; file resolution in progress   |
+## 🚀 Why Nervestack?
 
-## Installation
+### 1. Easy to Read (Python Frontend)
+Nervestack uses a Python-based intelligent parser that understands English-like keywords. No more cryptic symbols.
+```nervestack
+spec greet with name:
+    show "Hello, |name|! Welcome to the future."
+done
+
+greet "Developer"
+```
+
+### 2. Fast to Run (C++ Runtime)
+Once parsed, your code is executed by a high-performance **C++ engine**. You get the simplicity of Python with the raw power of C++.
+
+---
+
+## ✨ Key Features
+
+- **Natural Syntax**: `when`, `otherwise`, `traverse`, `until`, `attempt`.
+- **Intelligent I/O**: `ask` for input, `show` for output.
+- **Modern OOP**: `blueprint` (classes), `adopt` (inheritance), `spawn` (instances).
+- **Safe & Robust**: Native `attempt-trap-conclude` error handling.
+
+---
+
+## 🛠️ Installation
 
 ### Prerequisites
+- **Python 3.10+**
+- **C++ Compiler** (GCC, Clang, or MSVC)
 
-- **Python 3.10+**: For the frontend lexer and parser.
-- **C++ Compiler**: GCC, Clang, or MSVC to build the backend runtime.
-- **Git**: For version control.
-
-### Build Instructions
-
-1.  **Clone the Repository**
-
-    ```bash
-    git clone https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI.git
-    cd Nervestack-Codex-Institute-NCI
-    ```
-
-2.  **Build the Runtime Environment**
-
-    Navigate to the C++ backend directory and execute the build script:
-
-    ```bash
-    cd src/runtime
-    .\build.bat
-    cd ../..
-    ```
-
-    This compiles the C++ source code into the `main.exe` interpreter (NSPL Engine).
-
-## Usage
-
-### 1. Create a Source File
-
-Create a file with the `.nspl` extension, for example `hello.nspl`:
-
-```nervestack
-spec main:
-    show "Hello, Nervestack!"
-done
-
-funcall main
-```
-
-### 2. Execution
-
-**Step 1: Parse to AST**
-
-Run the Python frontend:
-
+### Detailed Setup
 ```bash
-python -m src.frontend.parser hello.nspl
+# 1. Get the code
+git clone https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI.git
+cd Nervestack-Codex-Institute-NCI
+
+# 2. Build the C++ Engine
+cd src/runtime
+.\build.bat
+cd ../..
 ```
 
-**Step 2: Execute Runtime**
+---
 
-Run the C++ runtime with the generated JSON AST:
+## 📖 Learning Nervestack
 
-```bash
-NSPL.exe hello.nspl.json
-```
+- **[Syntax in 5 Minutes](docs/Syntax.md)** - Get up to speed quickly.
+- **[Keyword Dictionary](docs/Keywords.md)** - Every keyword explained.
+- **[The UOP Philosophy](docs/UOP.md)** - Why we built it this way.
+- **[Examples](Examples.md)** - Real-world code snippets.
 
-## Language Examples
+---
 
-### Variable Declaration and I/O
+## 🤝 Contributing
 
-```nervestack
-firm user_name = ask "Enter your name: "
-show "Welcome, |user_name|."
-```
-
-### Control Flow
-
-```nervestack
-firm value = 10
-
-when value > 5:
-    show "Value exceeds threshold."
-otherwise:
-    show "Value is within limits."
-done
-```
-
-### Functions
-
-```nervestack
-spec calculate_area with radius giving Num:
-    forward 3.14 * radius * radius
-done
-
-firm area = funcall calculate_area(5)
-show "Area: |area|"
-```
-
-## Documentation
-
-- [Language Specification (UOP)](docs/UOP.md)
-- [Keywords Reference](docs/Keywords.md)
-- [Syntax Guide](docs/Syntax.md)
-- [Built-in Functions](docs/builtins.md)
-- [Contributing Guide](docs/CONTRIBUTING.md)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+We love help! Check out our [Contributing Guide](docs/CONTRIBUTING.md) to get started.
 
 Copyright © 2026 Nervestack Codex Institute (NCI).

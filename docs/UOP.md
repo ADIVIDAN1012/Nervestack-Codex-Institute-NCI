@@ -21,7 +21,7 @@ Universal User-Oriented Programming (UOP) is the design philosophy behind the Ne
 Nervestack (NSPL) achieves its status as the **easiest and fastest** programming language by leveraging the best of both worlds:
 
 -   **Ease of Use (Python Frontend):** The frontend is written in Python, allowing for a flexible, intelligent parser that can handle natural language constructs with ease. This ensures the developer experience is smooth and intuitive.
--   **Blazing Speed (C Backend):** The execution engine is written in optimized C. Once the Python frontend transforms your natural code into an Abstract Syntax Tree (AST), the C backend takes over, executing it with the raw performance of a system-level language.
+-   **Blazing Speed (C++ Backend):** The execution engine is written in optimized C++. Once the Python frontend transforms your natural code into an Abstract Syntax Tree (AST), the C++ backend takes over, executing it with the raw performance of a system-level language.
 
 ---
 

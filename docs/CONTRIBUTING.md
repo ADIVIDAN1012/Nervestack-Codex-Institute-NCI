@@ -5,10 +5,10 @@ Thank you for your interest in contributing to Nervestack! This document contain
 ## 🏗️ Project Structure
 
 ```
-Nervestack-NCI/
+Nervestack-Code-Engine-NCI/
 ├── src/
 │   ├── frontend/         # Python Compiler (Lexer/Parser/AST)
-│   └── runtime/          # C Interpreter (VM/Backend)
+│   └── runtime/          # C++ Interpreter (VM/Backend)
 ├── third_party/          # Dependencies (cJSON)
 ├── tools/                # VS Code Extension, Scripts, Website
 ├── docs/                 # Documentation files
@@ -22,14 +22,14 @@ Nervestack-NCI/
 ### Prerequisites
 
 - **Python 3.10 or higher**
-- **C Compiler** (GCC recommended for Windows, or Clang/MSVC)
+- **C++ Compiler** (GCC recommended for Windows, or Clang/MSVC)
 - **Git**
 
 ### Building the Compiler
 
-#### Step 1: Compile the C Backend
+#### Step 1: Compile the C++ Backend
 
-Navigate to the C backend directory and build:
+Navigate to the C++ backend directory and build:
 
 ```bash
 cd src/runtime

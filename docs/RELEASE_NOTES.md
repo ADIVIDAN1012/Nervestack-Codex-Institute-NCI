@@ -86,7 +86,7 @@ firm dog = spawn Animal("Rex", 3)
 
 **Backend Changes:**
 
-- Implemented `PackNode` JSON parsing in `main.c`
+- Implemented `PackNode` JSON parsing in `main.cpp`
 - Added pack interpretation with string representation
 - Fixed `TriggerNode` JSON serialization
 
@@ -102,7 +102,7 @@ firm dog = spawn Animal("Rex", 3)
 
 **Latest Release:** [v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/tag/v2.0.0)
 
-- **NSPL.exe** - C runtime interpreter (near-native performance)
+- **NSPL.exe** - C++ runtime interpreter (near-native performance)
 - **Nervestack-2.0.0.vsix** - VS Code extension with pack/unpack support
 
 ### 🐛 Bug Fixes
@@ -126,6 +126,6 @@ firm dog = spawn Animal("Rex", 3)
 # Compile .NSPL to JSON AST
 python -m src.frontend.parser program.NSPL
 
-# Execute with C runtime
+# Execute with C++ runtime
 NSPL.exe program.NSPL.json
 ```

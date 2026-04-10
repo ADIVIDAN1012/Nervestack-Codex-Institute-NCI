@@ -17,14 +17,14 @@ def create_docx(filename):
     runner.bold = True
     runner.font.size = Pt(14)
     
-    doc.add_paragraph("Hey everyone! I’m super excited to share Nervestack (NSPL) – a project I’ve been building from scratch. It’s a new coding language designed to be as readable as English but powered by a fast C engine. ⚡")
+    doc.add_paragraph("Hey everyone! I’m super excited to share Nervestack (NSPL) – a project I’ve been building from scratch. It’s a new coding language designed to be as readable as English but powered by a fast C++ engine. ⚡")
     
     # Features
     doc.add_heading('Why Nervestack?', level=1)
     
     features = [
         "Readable Syntax: Designed to feel like natural language.",
-        "High Performance: Powered by a custom C runtime.",
+        "High Performance: Powered by a custom C++ runtime.",
         "Smart Types: Automatic type detection (no more casting!).",
         "Modern Features: Pack collections, Traverse loops, and more."
     ]
@@ -78,7 +78,7 @@ def create_pptx(filename):
     p.level = 1
     
     p = tf.add_paragraph()
-    p.text = "Fast: Powered by a custom C Runtime"
+    p.text = "Fast: Powered by a custom C++ Runtime"
     p.level = 1
     
     p = tf.add_paragraph()

@@ -25,7 +25,7 @@ def generate_ast_json(source_code: str):
         f.write(ast_json)
     print(f"AST saved to {ast_path}")
 
-    # Execute with C Backend
+    # Execute with C++ Backend
     # Locate main.exe
     if getattr(sys, 'frozen', False):
         # Running as compiled executable

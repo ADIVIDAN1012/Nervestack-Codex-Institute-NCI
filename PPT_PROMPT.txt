@@ -65,7 +65,7 @@
 - **Content:**
     - Adding some crazy parallel execution (`paral`).
     - Event-driven signals and listeners.
-    - Maybe a super fast C backend if I get time.
+    - Maybe a super fast C++ backend if I get time.
 
 #### Slide 10: That's A Wrap!
 - **Heading:** Code as Art

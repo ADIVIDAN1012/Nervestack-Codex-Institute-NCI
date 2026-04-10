@@ -102,7 +102,7 @@ def main():
         file_path = sys.argv[2]
     
     else:
-        # Default to compile mode (uses C backend)
+        # Default to compile mode (uses C++ backend)
         mode = 'compile'
         file_path = first_arg
     

@@ -12,7 +12,7 @@
 | ------------------ | -------------------------- | --------------- | ----------------- | ------------ |
 | **Type System**    | Dynamic                    | Dynamic         | Static            | Static       |
 | **Memory Model**   | Manual + Scopes            | GC              | GC                | Manual       |
-| **Compilation**    | AST→JSON→C Runtime         | Interpreted/JIT | Bytecode→JVM      | Native       |
+| **Compilation**    | AST→JSON→C++ Runtime       | Interpreted/JIT | Bytecode→JVM      | Native       |
 | **OOP**            | Blueprint/Spawn            | Class-based     | Class-based       | Struct-based |
 | **Collections**    | `pack()`                   | List/Dict       | ArrayList/HashMap | Arrays       |
 | **Error Handling** | `attempt`/`trap`/`trigger` | try/except      | try/catch         | Return codes |

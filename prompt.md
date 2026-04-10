@@ -67,9 +67,9 @@
 
 - **Content:** I wrote a custom "Compiler" that understands grammar, rules, and logic. It catches errors before they happen.
 
-**Slide 12: Powered by C**
+**Slide 12: Powered by C++**
 
-- **Technical Flex:** The engine running underneath is written in C, one of the fastest languages in existence. This makes Nervestack incredibly efficient.
+- **Technical Flex:** The engine running underneath is written in C++, one of the fastest languages in existence. This makes Nervestack incredibly efficient.
 
 **Slide 13: Building from Scratch**
 
@@ -100,7 +100,7 @@
 
 **Slide 17: Performance**
 
-- **Content:** Because of the C engine, Nervestack runs complex logic instantly.
+- **Content:** Because of the C++ engine, Nervestack runs complex logic instantly.
 
 ### Section 6: Future & Conclusion (Slides 18-20)
 

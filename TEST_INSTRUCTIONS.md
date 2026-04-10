@@ -2,7 +2,7 @@
 
 ## How to Test
 
-The dynamic type conversion feature has been implemented in the C backend. To test it:
+The dynamic type conversion feature has been implemented in the C++ backend. To test it:
 
 ### Option 1: Using a test file
 
@@ -27,7 +27,7 @@ Since `ask` appears to be a statement and not an expression in the current parse
 
 ### What was implemented
 
-The C backend now has `detect_and_convert_type()` that automatically converts:
+The C++ backend now has `detect_and_convert_type()` that automatically converts:
 
 - `"42"` → Number (42.0)
 - `"3.14"` → Number (3.14)
@@ -36,7 +36,7 @@ The C backend now has `detect_and_convert_type()` that automatically converts:
 - `"Nil"` → Nil type
 - `"hello"` → Text ("hello")
 
-The implementation is in `main.c` lines 651-702 (detection function) and lines 1315-1333 (ask handler).
+The implementation is in `main.cpp` lines 651-702 (detection function) and lines 1315-1333 (ask handler).
 
 ### Note
 

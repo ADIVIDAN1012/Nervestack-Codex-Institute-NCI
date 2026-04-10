@@ -100,7 +100,7 @@ firm dog = spawn Animal("Rex", 3)
 
 ### 📦 Downloads
 
-**Latest Release:** [v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/tag/v2.0.0)
+**Latest Release:** [v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/releases/tag/v2.0.0)
 
 - **NSPL.exe** - C++ runtime interpreter (near-native performance)
 - **Nervestack-2.0.0.vsix** - VS Code extension with pack/unpack support
@@ -113,12 +113,12 @@ firm dog = spawn Animal("Rex", 3)
 
 ### 📚 Documentation
 
-- [comparison.md](https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/blob/master/comparison.md) - Language comparison guide
+- [comparison.md](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/blob/master/comparison.md) - Language comparison guide
 - [Website](https://adividan1012.github.io/Nervestack-NCI/) - Updated with v2.0 features
 
 ---
 
-**Full Changelog**: [v1.0.0...v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/compare/v1.0.0...v2.0.0)
+**Full Changelog**: [v1.0.0...v2.0.0](https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/compare/v1.0.0...v2.0.0)
 
 **Execution**:
 

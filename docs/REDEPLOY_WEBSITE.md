@@ -2,13 +2,13 @@
 
 ## ✅ Changes Pushed to GitHub
 
-Your website files are now updated and pushed to: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI
+Your website files are now updated and pushed to: https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI
 
 **Updated:**
 
 - Download links now point to v2.0.0 GitHub release assets
-- NSPL.exe link: `https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/download/v2.0.0/NSPL.exe`
-- VS Code extension link: `https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/download/v2.0.0/Nervestack-2.0.0.vsix`
+- NSPL.exe link: `https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/releases/download/v2.0.0/NSPL.exe`
+- VS Code extension link: `https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/releases/download/v2.0.0/Nervestack-2.0.0.vsix`
 
 ---
 
@@ -16,7 +16,7 @@ Your website files are now updated and pushed to: https://github.com/ADIVIDAN101
 
 ### Option 1: Deploy from `Nervestack-website` folder (Recommended)
 
-1. Go to: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/settings/pages
+1. Go to: https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/settings/pages
 
 2. Under **Source**:
    - Branch: Select **main**
@@ -43,7 +43,7 @@ If you want the site at the root URL without the `/Nervestack-website` path, you
 
 **Just follow these 3 steps:**
 
-1. **Open Settings**: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/settings/pages
+1. **Open Settings**: https://github.com/ADIVIDAN1012/Nervestack-Codex-Institute-NCI/settings/pages
 
 2. **Configure**:
    - Source: **Deploy from a branch**

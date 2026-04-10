@@ -8,10 +8,10 @@ from docx import Document
 from docx.shared import Mm
 
 # Configuration
-HTML_FILE = "The_Story_of_Beacon.html"
+HTML_FILE = "The_Story_of_Nervestack.html"
 IMAGE_DIR = "slide_images"
-OUTPUT_DOCX = "The_Story_of_Beacon.docx"
-OUTPUT_PPTX = "The_Story_of_Beacon.pptx"
+OUTPUT_DOCX = "The_Story_of_Nervestack.docx"
+OUTPUT_PPTX = "The_Story_of_Nervestack.pptx"
 
 async def html_slides_to_images(html_path, output_dir):
     print(f"--- Extracting slides from {html_path} ---")

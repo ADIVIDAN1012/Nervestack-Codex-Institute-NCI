@@ -5,14 +5,14 @@ Thank you for your interest in contributing to Nervestack! This document contain
 ## 🏗️ Project Structure
 
 ```
-Nervestack-Labs/
+Nervestack-NCI/
 ├── src/
 │   ├── frontend/         # Python Compiler (Lexer/Parser/AST)
 │   └── runtime/          # C Interpreter (VM/Backend)
 ├── third_party/          # Dependencies (cJSON)
 ├── tools/                # VS Code Extension, Scripts, Website
 ├── docs/                 # Documentation files
-├── examples/             # Example .NSL files
+├── examples/             # Example .NSPL files
 ├── tests/                # Test suite
 └── README.md             # Main user documentation
 ```
@@ -44,15 +44,15 @@ The frontend is Python-based and requires no compilation, but you run it to gene
 
 ```bash
 cd src/frontend
-py frontend.py ..\..\examples\your_file.NSL
+py frontend.py ..\..\examples\your_file.NSPL
 ```
 
 ### Testing & Verification
 
 To verify if a feature works:
 
-1. **Write a test:** Create a `.NSL` file using the feature
-2. **Compile:** Run `py src/frontend/frontend.py examples/yourtest.NSL` to generate `ast.json`
+1. **Write a test:** Create a `.NSPL` file using the feature
+2. **Compile:** Run `py src/frontend/frontend.py examples/yourtest.NSPL` to generate `ast.json`
 3. **Execute:** Run `.\src\runtime\main.exe ast.json`
 4. **Verify:** Does it produce the expected output?
 
@@ -68,6 +68,6 @@ py test_runner.py
 ## VS Code Extension
 
 To work on the extension:
+
 1. Open the `Nervestack-vscode-extension` folder in VS Code.
 2. Press `F5` to launch a new VS Code window with the extension loaded.
-

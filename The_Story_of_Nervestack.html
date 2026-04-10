@@ -1,693 +1,1109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Story of Beacon (BPL)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Story of Nervestack (NSPL)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
     <style>
-/* 1. THE SETUP & THEME */
-:root {
-    --bg-color: #0f172a; /* Slate 900 */
-    --card-bg: #1e293b; /* Slate 800 */
-    --text-primary: #f8fafc; /* Slate 50 */
-    --text-secondary: #94a3b8; /* Slate 400 */
-    --accent-beacon: #f59e0b; /* Amber 500 - The "Beacon" Light */
-    --accent-code: #38bdf8; /* Sky 400 - Tech feel */
-    --code-bg: #020617; /* Slate 950 */
-    --font-main: 'Inter', sans-serif;
-    --font-code: 'JetBrains Mono', monospace;
-}
+      /* 1. THE SETUP & THEME */
+      :root {
+        --bg-color: #0f172a; /* Slate 900 */
+        --card-bg: #1e293b; /* Slate 800 */
+        --text-primary: #f8fafc; /* Slate 50 */
+        --text-secondary: #94a3b8; /* Slate 400 */
+        --accent-nervestack: #f59e0b; /* Amber 500 - The "Nervestack" Light */
+        --accent-code: #38bdf8; /* Sky 400 - Tech feel */
+        --code-bg: #020617; /* Slate 950 */
+        --font-main: "Inter", sans-serif;
+        --font-code: "JetBrains Mono", monospace;
+      }
 
-* {
-    box-sizing: border-box;
-}
+      * {
+        box-sizing: border-box;
+      }
 
-body {
-    background-color: #cbd5e1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin: 0;
-    min-height: 100vh;
-    padding: 20px;
-    font-family: var(--font-main);
-}
-
-.slide-container {
-    background-color: var(--bg-color);
-    border-radius: 16px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden; /* Keeps the rounded corners clean */
-    padding: 50px;
-    position: relative;
-    width: 100%;
-    max-width: 1280px;
-    min-height: 720px; /* Ensures desktop height, grows if needed */
-    height: auto;
-    color: var(--text-primary);
-    border: 1px solid #334155;
-}
-
-/* 1.1 BACKGROUND EFFECTS */
-.slide-container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
-    z-index: 0;
-    pointer-events: none;
-}
-
-.slide-container > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* 2. TYPOGRAPHY */
-h1, h2, h3 {
-    margin: 0;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-h1 { font-size: clamp(40px, 5vw, 64px); color: var(--text-primary); line-height: 1.1; }
-h2 { font-size: clamp(32px, 4vw, 42px); color: var(--accent-beacon); margin-bottom: 30px; }
-h3 { font-size: clamp(20px, 3vw, 24px); color: var(--accent-code); margin-bottom: 12px; }
-
-p, li, td, th {
-    font-size: clamp(16px, 2vw, 18px);
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 12px;
-}
-
-ul {
-    padding-left: 20px;
-    margin: 0;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-/* 3. LAYOUT UTILITIES */
-.content-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-}
-
-.two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    width: 100%;
-}
-
-.two-column.tiled > div {
-    background-color: var(--card-bg);
-    padding: 35px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.tiled-content {
-    display: flex;
-    gap: 25px;
-    width: 100%;
-    justify-content: center;
-    align-items: stretch;
-}
-
-.tile {
-    background-color: var(--card-bg);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #334155;
-    flex: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.tile .icon {
-    font-size: clamp(36px, 4vw, 42px);
-    color: var(--accent-beacon);
-    margin-bottom: 15px;
-}
-
-/* 4. CODE SNIPPET STYLING */
-.code-block {
-    background-color: var(--code-bg);
-    border-radius: 8px;
-    border: 1px solid #334155;
-    padding: 20px;
-    font-family: var(--font-code);
-    font-size: clamp(14px, 1.5vw, 16px);
-    color: #e2e8f0;
-    overflow-x: auto;
-    white-space: pre;
-    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-    width: 100%;
-}
-
-.code-keyword { color: #c084fc; font-weight: bold; }
-.code-string { color: #4ade80; }
-.code-num { color: #facc15; }
-.code-comment { color: #64748b; font-style: italic; }
-
-/* 5. SPECIFIC LAYOUTS */
-.title-layout { text-align: center; }
-.title-layout h1 { margin-bottom: 15px; background: linear-gradient(to right, #f59e0b, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.title-layout .subtitle { font-size: clamp(18px, 2.5vw, 24px); color: var(--text-secondary); font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; }
-
-.highlight-number { font-size: clamp(80px, 10vw, 100px); font-weight: 800; color: var(--accent-beacon); line-height: 1; }
-.highlight-label { font-size: clamp(18px, 2vw, 20px); color: var(--text-primary); margin-top: 10px; font-weight: 600; }
-
-.quote-layout blockquote {
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 600;
-    color: var(--text-primary);
-    text-align: center;
-    border-left: none;
-    padding: 0 20px;
-    font-family: var(--font-main);
-    line-height: 1.3;
-}
-.quote-layout cite { display: block; margin-top: 25px; font-size: clamp(18px, 2vw, 22px); color: var(--accent-code); font-style: normal; text-align: center; }
-
-/* Table Styling */
-table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 500px; /* Ensure table scrolls on small screens */ }
-.table-wrapper { overflow-x: auto; width: 100%; }
-th { text-align: left; color: var(--accent-beacon); border-bottom: 2px solid #334155; padding: 12px; font-size: clamp(16px, 2vw, 20px); }
-td { border-bottom: 1px solid #334155; padding: 12px; font-size: clamp(14px, 2vw, 18px); }
-tr:last-child td { border-bottom: none; }
-
-/* Timeline */
-.timeline-layout { display: flex; justify-content: space-between; position: relative; width: 100%; margin-top: 30px; align-items: flex-start; }
-.timeline-line { position: absolute; top: 20px; left: 0; width: 100%; height: 4px; background: #334155; z-index: 0; }
-.timeline-item { position: relative; width: 22%; text-align: center; z-index: 1; }
-.timeline-dot { width: 44px; height: 44px; background: var(--bg-color); border: 4px solid var(--accent-beacon); border-radius: 50%; margin: 0 auto 15px; display: grid; place-items: center; color: var(--accent-beacon); }
-.timeline-content h3 { font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
-.timeline-content p { font-size: 16px; margin: 0; }
-
-/* --- RESPONSIVE MEDIA QUERIES --- */
-@media (max-width: 900px) {
-    .slide-container {
-        padding: 30px;
-        min-height: auto;
-    }
-
-    .two-column {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .two-column.tiled > div {
-        height: auto;
-    }
-
-    .tiled-content {
-        flex-direction: column;
-    }
-    
-    .tile {
-        width: 100%;
-    }
-
-    /* Timeline Stack for Mobile */
-    .timeline-layout {
+      body {
+        background-color: #cbd5e1;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
-        margin-top: 10px;
-    }
-    
-    .timeline-line {
-        width: 4px;
-        height: 100%;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-    }
+        gap: 20px;
+        margin: 0;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: var(--font-main);
+      }
 
-    .timeline-item {
+      .slide-container {
+        background-color: var(--bg-color);
+        border-radius: 16px;
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.3),
+          0 8px 10px -6px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden; /* Keeps the rounded corners clean */
+        padding: 50px;
+        position: relative;
         width: 100%;
-        max-width: 300px;
-        background: var(--bg-color); /* Hide line behind text */
-        padding: 10px;
-    }
+        max-width: 1280px;
+        min-height: 720px; /* Ensures desktop height, grows if needed */
+        height: auto;
+        color: var(--text-primary);
+        border: 1px solid #334155;
+      }
 
-    .timeline-dot {
-        margin: 0 auto 10px;
-    }
+      /* 1.1 BACKGROUND EFFECTS */
+      .slide-container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 158, 11, 0.08) 0%,
+          rgba(15, 23, 42, 0) 70%
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
 
-    /* Adjust specific icons/images sizes */
-    .fa-user-astronaut, .fa-tower-broadcast, .fa-laptop-code {
-        font-size: 60px !important;
-    }
-}
+      .slide-container > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* 2. TYPOGRAPHY */
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        font-size: clamp(40px, 5vw, 64px);
+        color: var(--text-primary);
+        line-height: 1.1;
+      }
+      h2 {
+        font-size: clamp(32px, 4vw, 42px);
+        color: var(--accent-nervestack);
+        margin-bottom: 30px;
+      }
+      h3 {
+        font-size: clamp(20px, 3vw, 24px);
+        color: var(--accent-code);
+        margin-bottom: 12px;
+      }
+
+      p,
+      li,
+      td,
+      th {
+        font-size: clamp(16px, 2vw, 18px);
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      /* 3. LAYOUT UTILITIES */
+      .content-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-grow: 1;
+        width: 100%;
+      }
+
+      .two-column {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+        width: 100%;
+      }
+
+      .two-column.tiled > div {
+        background-color: var(--card-bg);
+        padding: 35px;
+        border-radius: 12px;
+        border: 1px solid #334155;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .tiled-content {
+        display: flex;
+        gap: 25px;
+        width: 100%;
+        justify-content: center;
+        align-items: stretch;
+      }
+
+      .tile {
+        background-color: var(--card-bg);
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #334155;
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .tile .icon {
+        font-size: clamp(36px, 4vw, 42px);
+        color: var(--accent-nervestack);
+        margin-bottom: 15px;
+      }
+
+      /* 4. CODE SNIPPET STYLING */
+      .code-block {
+        background-color: var(--code-bg);
+        border-radius: 8px;
+        border: 1px solid #334155;
+        padding: 20px;
+        font-family: var(--font-code);
+        font-size: clamp(14px, 1.5vw, 16px);
+        color: #e2e8f0;
+        overflow-x: auto;
+        white-space: pre;
+        box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+        width: 100%;
+      }
+
+      .code-keyword {
+        color: #c084fc;
+        font-weight: bold;
+      }
+      .code-string {
+        color: #4ade80;
+      }
+      .code-num {
+        color: #facc15;
+      }
+      .code-comment {
+        color: #64748b;
+        font-style: italic;
+      }
+
+      /* 5. SPECIFIC LAYOUTS */
+      .title-layout {
+        text-align: center;
+      }
+      .title-layout h1 {
+        margin-bottom: 15px;
+        background: linear-gradient(to right, #f59e0b, #fbbf24);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .title-layout .subtitle {
+        font-size: clamp(18px, 2.5vw, 24px);
+        color: var(--text-secondary);
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .highlight-number {
+        font-size: clamp(80px, 10vw, 100px);
+        font-weight: 800;
+        color: var(--accent-nervestack);
+        line-height: 1;
+      }
+      .highlight-label {
+        font-size: clamp(18px, 2vw, 20px);
+        color: var(--text-primary);
+        margin-top: 10px;
+        font-weight: 600;
+      }
+
+      .quote-layout blockquote {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 600;
+        color: var(--text-primary);
+        text-align: center;
+        border-left: none;
+        padding: 0 20px;
+        font-family: var(--font-main);
+        line-height: 1.3;
+      }
+      .quote-layout cite {
+        display: block;
+        margin-top: 25px;
+        font-size: clamp(18px, 2vw, 22px);
+        color: var(--accent-code);
+        font-style: normal;
+        text-align: center;
+      }
+
+      /* Table Styling */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        min-width: 500px; /* Ensure table scrolls on small screens */
+      }
+      .table-wrapper {
+        overflow-x: auto;
+        width: 100%;
+      }
+      th {
+        text-align: left;
+        color: var(--accent-nervestack);
+        border-bottom: 2px solid #334155;
+        padding: 12px;
+        font-size: clamp(16px, 2vw, 20px);
+      }
+      td {
+        border-bottom: 1px solid #334155;
+        padding: 12px;
+        font-size: clamp(14px, 2vw, 18px);
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Timeline */
+      .timeline-layout {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+        align-items: flex-start;
+      }
+      .timeline-line {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: #334155;
+        z-index: 0;
+      }
+      .timeline-item {
+        position: relative;
+        width: 22%;
+        text-align: center;
+        z-index: 1;
+      }
+      .timeline-dot {
+        width: 44px;
+        height: 44px;
+        background: var(--bg-color);
+        border: 4px solid var(--accent-nervestack);
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: grid;
+        place-items: center;
+        color: var(--accent-nervestack);
+      }
+      .timeline-content h3 {
+        font-size: 20px;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+      .timeline-content p {
+        font-size: 16px;
+        margin: 0;
+      }
+
+      /* --- RESPONSIVE MEDIA QUERIES --- */
+      @media (max-width: 900px) {
+        .slide-container {
+          padding: 30px;
+          min-height: auto;
+        }
+
+        .two-column {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .two-column.tiled > div {
+          height: auto;
+        }
+
+        .tiled-content {
+          flex-direction: column;
+        }
+
+        .tile {
+          width: 100%;
+        }
+
+        /* Timeline Stack for Mobile */
+        .timeline-layout {
+          flex-direction: column;
+          align-items: center;
+          gap: 30px;
+          margin-top: 10px;
+        }
+
+        .timeline-line {
+          width: 4px;
+          height: 100%;
+          left: 50%;
+          top: 0;
+          transform: traNSPLateX(-50%);
+        }
+
+        .timeline-item {
+          width: 100%;
+          max-width: 300px;
+          background: var(--bg-color); /* Hide line behind text */
+          padding: 10px;
+        }
+
+        .timeline-dot {
+          margin: 0 auto 10px;
+        }
+
+        /* Adjust specific icons/images sizes */
+        .fa-user-astronaut,
+        .fa-tower-broadcast,
+        .fa-laptop-code {
+          font-size: 60px !important;
+        }
+      }
     </style>
-</head>
-<body>
-
-<!-- Slide 1: Title -->
-<div class="slide-container" id="slide1">
-    <div class="title-layout">
-        <div style="font-size: clamp(50px, 8vw, 70px); margin-bottom: 15px; color: var(--accent-beacon);"><i class="fa-solid fa-lightbulb"></i></div>
+  </head>
+  <body>
+    <!-- Slide 1: Title -->
+    <div class="slide-container" id="slide1">
+      <div class="title-layout">
+        <div
+          style="
+            font-size: clamp(50px, 8vw, 70px);
+            margin-bottom: 15px;
+            color: var(--accent-nervestack);
+          "
+        >
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
         <h1>I Built a Programming Language</h1>
-        <p class="subtitle">The Story of Beacon (BPL)</p>
+        <p class="subtitle">The Story of Nervestack (NSPL)</p>
+      </div>
     </div>
-</div>
 
-<!-- Slide 2: About the Creator -->
-<div class="slide-container" id="slide2">
-    <h2 class="slide-title">About the Creator</h2>
-    <div class="content-area">
+    <!-- Slide 2: About the Creator -->
+    <div class="slide-container" id="slide2">
+      <h2 class="slide-title">About the Creator</h2>
+      <div class="content-area">
         <div class="two-column tiled">
-            <div style="align-items: center; text-align: center;">
-                <i class="fa-solid fa-user-astronaut" style="font-size: 70px; color: var(--accent-code); margin-bottom: 25px;"></i>
-                <h3>Hi, I'm Aaditya</h3>
-                <p>Passionate about technology, logic, and solving complex problems with simple solutions.</p>
-            </div>
-            <div>
-                <h3>My Mission</h3>
-                <p>To understand computers at their deepest level by building the core tools they run on.</p>
-                <br>
-                <h3>The Project</h3>
-                <p>Beacon is the culmination of months of research, design, and pure coding.</p>
-            </div>
+          <div style="align-items: center; text-align: center">
+            <i
+              class="fa-solid fa-user-astronaut"
+              style="
+                font-size: 70px;
+                color: var(--accent-code);
+                margin-bottom: 25px;
+              "
+            ></i>
+            <h3>Hi, I'm Aaditya</h3>
+            <p>
+              Passionate about technology, logic, and solving complex problems
+              with simple solutions.
+            </p>
+          </div>
+          <div>
+            <h3>My Mission</h3>
+            <p>
+              To understand computers at their deepest level by building the
+              core tools they run on.
+            </p>
+            <br />
+            <h3>The Project</h3>
+            <p>
+              Nervestack is the culmination of months of research, design, and pure
+              coding.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 3: The Big Announcement -->
-<div class="slide-container" id="slide3">
-    <div class="content-area" style="text-align: center;">
-        <p style="font-size: clamp(16px, 2vw, 20px); color: var(--accent-code); text-transform: uppercase; letter-spacing: 2px;">Official Release</p>
-        <h1 style="font-size: clamp(48px, 8vw, 90px); color: var(--text-primary); margin: 15px 0;">BEACON <span style="color: var(--accent-beacon);">v2.0.0</span></h1>
-        <hr style="width: 80px; border: 2px solid #334155; margin: 25px auto;">
-        <p style="max-width: 800px; margin: 0 auto;">This isn't just an app or a script. It's the foundation logic that other applications are built upon.</p>
+    <!-- Slide 3: The Big Announcement -->
+    <div class="slide-container" id="slide3">
+      <div class="content-area" style="text-align: center">
+        <p
+          style="
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--accent-code);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+          "
+        >
+          Official Release
+        </p>
+        <h1
+          style="
+            font-size: clamp(48px, 8vw, 90px);
+            color: var(--text-primary);
+            margin: 15px 0;
+          "
+        >
+          NERVESTACK <span style="color: var(--accent-nervestack)">v2.0.0</span>
+        </h1>
+        <hr style="width: 80px; border: 2px solid #334155; margin: 25px auto" />
+        <p style="max-width: 800px; margin: 0 auto">
+          This isn't just an app or a script. It's the foundation logic that
+          other applications are built upon.
+        </p>
+      </div>
     </div>
-</div>
 
-<!-- Slide 4: The Problem -->
-<div class="slide-container" id="slide4">
-    <h2 class="slide-title">The Problem with Coding</h2>
-    <div class="content-area">
+    <!-- Slide 4: The Problem -->
+    <div class="slide-container" id="slide4">
+      <h2 class="slide-title">The Problem with Coding</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div>
-                <h3>Hieroglyphics?</h3>
-                <p>For beginners, traditional programming languages like C++ or Java can look intimidating and overly complex.</p>
-                <p>There is too much "syntax noise"—semicolons, braces, and obscure keywords that get in the way of the actual logic.</p>
-            </div>
-            <div>
-                <div class="code-block" style="border-color: #ef4444;">
-<span class="code-comment">// C++ Example</span>
-<span class="code-keyword">#include</span> &lt;iostream&gt;
-<span class="code-keyword">using namespace</span> std;
+          <div>
+            <h3>Hieroglyphics?</h3>
+            <p>
+              For beginners, traditional programming languages like C++ or Java
+              can look intimidating and overly complex.
+            </p>
+            <p>
+              There is too much "syntax noise"—semicolons, braces, and obscure
+              keywords that get in the way of the actual logic.
+            </p>
+          </div>
+          <div>
+            <div class="code-block" style="border-color: #ef4444">
+              <span class="code-comment">// C++ Example</span>
+              <span class="code-keyword">#include</span> &lt;iostream&gt;
+              <span class="code-keyword">using namespace</span> std;
 
-<span class="code-keyword">int</span> main() {
-    cout &lt;&lt; <span class="code-string">"Hello!"</span> &lt;&lt; endl;
-    <span class="code-keyword">return</span> <span class="code-num">0</span>;
-}
-                </div>
-                <p style="text-align: center; color: #ef4444; font-size: 16px; margin-top: 10px;"><i class="fa-solid fa-xmark"></i> Hard to read for humans</p>
+              <span class="code-keyword">int</span> main() { cout &lt;&lt;
+              <span class="code-string">"Hello!"</span> &lt;&lt; endl;
+              <span class="code-keyword">return</span>
+              <span class="code-num">0</span>; }
             </div>
+            <p
+              style="
+                text-align: center;
+                color: #ef4444;
+                font-size: 16px;
+                margin-top: 10px;
+              "
+            >
+              <i class="fa-solid fa-xmark"></i> Hard to read for humans
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 5: My Vision -->
-<div class="slide-container" id="slide5">
-    <div class="content-area">
+    <!-- Slide 5: My Vision -->
+    <div class="slide-container" id="slide5">
+      <div class="content-area">
         <div class="quote-layout">
-            <i class="fa-solid fa-quote-left" style="font-size: 40px; color: var(--accent-beacon); margin-bottom: 20px;"></i>
-            <blockquote>"I wanted a language that reads like a story. Simple. Logical. English-like."</blockquote>
-            <cite>— The Vision for Beacon</cite>
+          <i
+            class="fa-solid fa-quote-left"
+            style="
+              font-size: 40px;
+              color: var(--accent-nervestack);
+              margin-bottom: 20px;
+            "
+          ></i>
+          <blockquote>
+            "I wanted a language that reads like a story. Simple. Logical.
+            English-like."
+          </blockquote>
+          <cite>— The Vision for Nervestack</cite>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 6: What is a Language? -->
-<div class="slide-container" id="slide6">
-    <h2 class="slide-title">What is a "Language"?</h2>
-    <div class="content-area">
+    <!-- Slide 6: What is a Language? -->
+    <div class="slide-container" id="slide6">
+      <h2 class="slide-title">What is a "Language"?</h2>
+      <div class="content-area">
         <div class="two-column tiled">
-            <div style="text-align: center;">
-                <i class="fa-solid fa-comments" style="font-size: 50px; color: var(--accent-code); margin-bottom: 20px;"></i>
-                <h3>Human Language</h3>
-                <p>French or Spanish allows humans to communicate ideas and emotions to one another.</p>
-            </div>
-            <div style="text-align: center;">
-                <i class="fa-solid fa-microchip" style="font-size: 50px; color: var(--accent-beacon); margin-bottom: 20px;"></i>
-                <h3>Programming Language</h3>
-                <p>A tool to communicate logic and commands to a machine. I simply built a better, clearer translator.</p>
-            </div>
+          <div style="text-align: center">
+            <i
+              class="fa-solid fa-comments"
+              style="
+                font-size: 50px;
+                color: var(--accent-code);
+                margin-bottom: 20px;
+              "
+            ></i>
+            <h3>Human Language</h3>
+            <p>
+              French or Spanish allows humans to communicate ideas and emotions
+              to one another.
+            </p>
+          </div>
+          <div style="text-align: center">
+            <i
+              class="fa-solid fa-microchip"
+              style="
+                font-size: 50px;
+                color: var(--accent-nervestack);
+                margin-bottom: 20px;
+              "
+            ></i>
+            <h3>Programming Language</h3>
+            <p>
+              A tool to communicate logic and commands to a machine. I simply
+              built a better, clearer traNSPLator.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 7: Why Beacon? -->
-<div class="slide-container" id="slide7">
-    <div class="content-area" style="text-align: center;">
-        <i class="fa-solid fa-tower-broadcast" style="font-size: 90px; color: var(--accent-beacon); margin-bottom: 30px; text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);"></i>
-        <h1 style="margin-bottom: 25px;">Why "Beacon"?</h1>
-        <p style="font-size: 28px; max-width: 900px; margin: 0 auto;">Like a light guiding ships in the dark, this language guides the computer through logic clearly, safely, and efficiently.</p>
+    <!-- Slide 7: Why Nervestack? -->
+    <div class="slide-container" id="slide7">
+      <div class="content-area" style="text-align: center">
+        <i
+          class="fa-solid fa-tower-broadcast"
+          style="
+            font-size: 90px;
+            color: var(--accent-nervestack);
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+          "
+        ></i>
+        <h1 style="margin-bottom: 25px">Why "Nervestack"?</h1>
+        <p style="font-size: 28px; max-width: 900px; margin: 0 auto">
+          Like a light guiding ships in the dark, this language guides the
+          computer through logic clearly, safely, and efficiently.
+        </p>
+      </div>
     </div>
-</div>
 
-<!-- Slide 8: Core Philosophy -->
-<div class="slide-container" id="slide8">
-    <h2 class="slide-title">Core Philosophy</h2>
-    <div class="content-area">
-        <p style="text-align: center; font-size: 22px; margin-bottom: 40px; color: var(--text-primary);">"Code should be for humans first, machines second."</p>
+    <!-- Slide 8: Core Philosophy -->
+    <div class="slide-container" id="slide8">
+      <h2 class="slide-title">Core Philosophy</h2>
+      <div class="content-area">
+        <p
+          style="
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+          "
+        >
+          "Code should be for humans first, machines second."
+        </p>
         <div class="tiled-content">
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-book-open"></i></div>
-                <h3>Readability</h3>
-                <p>Syntax that is clean and intuitive.</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-feather"></i></div>
-                <h3>Simplicity</h3>
-                <p>Removing unnecessary complexity.</p>
-            </div>
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-bolt"></i></div>
-                <h3>Speed</h3>
-                <p>Execution without the bloat.</p>
-            </div>
+          <div class="tile">
+            <div class="icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Readability</h3>
+            <p>Syntax that is clean and intuitive.</p>
+          </div>
+          <div class="tile">
+            <div class="icon"><i class="fa-solid fa-feather"></i></div>
+            <h3>Simplicity</h3>
+            <p>Removing unnecessary complexity.</p>
+          </div>
+          <div class="tile">
+            <div class="icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Speed</h3>
+            <p>Execution without the bloat.</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 9: Beacon vs The World -->
-<div class="slide-container" id="slide9">
-    <h2 class="slide-title">Beacon vs The World</h2>
-    <div class="content-area">
+    <!-- Slide 9: Nervestack vs The World -->
+    <div class="slide-container" id="slide9">
+      <h2 class="slide-title">Nervestack vs The World</h2>
+      <div class="content-area">
         <div class="table-wrapper">
-        <table>
+          <table>
             <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th style="color: #94a3b8;">Python</th>
-                    <th style="color: #94a3b8;">C Language</th>
-                    <th style="color: var(--accent-beacon); font-weight: bold;">Beacon (BPL)</th>
-                </tr>
+              <tr>
+                <th>Feature</th>
+                <th style="color: #94a3b8">Python</th>
+                <th style="color: #94a3b8">C Language</th>
+                <th style="color: var(--accent-nervestack); font-weight: bold">
+                  Nervestack (NSPL)
+                </th>
+              </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><strong>Readability</strong></td>
-                    <td>Very High</td>
-                    <td>Low</td>
-                    <td style="color: var(--accent-code);"><strong>Very High</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Performance</strong></td>
-                    <td>Slow (Interpreted)</td>
-                    <td>Extremely Fast</td>
-                    <td style="color: var(--accent-code);"><strong>Fast</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Complexity</strong></td>
-                    <td>Easy</td>
-                    <td>Hard</td>
-                    <td style="color: var(--accent-code);"><strong>Easy</strong></td>
-                </tr>
-                <tr>
-                    <td><strong>Conclusion</strong></td>
-                    <td>Great for scripts</td>
-                    <td>Great for systems</td>
-                    <td><strong>Best of Both</strong></td>
-                </tr>
+              <tr>
+                <td><strong>Readability</strong></td>
+                <td>Very High</td>
+                <td>Low</td>
+                <td style="color: var(--accent-code)">
+                  <strong>Very High</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Performance</strong></td>
+                <td>Slow (Interpreted)</td>
+                <td>Extremely Fast</td>
+                <td style="color: var(--accent-code)"><strong>Fast</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Complexity</strong></td>
+                <td>Easy</td>
+                <td>Hard</td>
+                <td style="color: var(--accent-code)"><strong>Easy</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Conclusion</strong></td>
+                <td>Great for scripts</td>
+                <td>Great for systems</td>
+                <td><strong>Best of Both</strong></td>
+              </tr>
             </tbody>
-        </table>
+          </table>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 10: How It Works -->
-<div class="slide-container" id="slide10">
-    <h2 class="slide-title">How It Works</h2>
-    <div class="content-area">
+    <!-- Slide 10: How It Works -->
+    <div class="slide-container" id="slide10">
+      <h2 class="slide-title">How It Works</h2>
+      <div class="content-area">
         <div class="timeline-layout">
-            <div class="timeline-line"></div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-regular fa-file-code"></i></div>
-                <div class="timeline-content">
-                    <h3>1. Input</h3>
-                    <p>The user writes simple text files (.bpl) with English-like logic.</p>
-                </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-regular fa-file-code"></i>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-solid fa-gears"></i></div>
-                <div class="timeline-content">
-                    <h3>2. The Brain</h3>
-                    <p>The Compiler reads, parses, and understands the intent.</p>
-                </div>
+            <div class="timeline-content">
+              <h3>1. Input</h3>
+              <p>
+                The user writes simple text files (.nspl) with English-like
+                logic.
+              </p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-solid fa-play"></i></div>
-                <div class="timeline-content">
-                    <h3>3. Action</h3>
-                    <p>The computer executes the specific machine instructions.</p>
-                </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-gears"></i></div>
+            <div class="timeline-content">
+              <h3>2. The Brain</h3>
+              <p>The Compiler reads, parses, and understands the intent.</p>
             </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-play"></i></div>
+            <div class="timeline-content">
+              <h3>3. Action</h3>
+              <p>The computer executes the specific machine instructions.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 11: The Compiler -->
-<div class="slide-container" id="slide11">
-    <h2 class="slide-title">The "Brain" (Compiler)</h2>
-    <div class="content-area">
+    <!-- Slide 11: The Compiler -->
+    <div class="slide-container" id="slide11">
+      <h2 class="slide-title">The "Brain" (Compiler)</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div>
-                <h3>Custom Built Intelligence</h3>
-                <p>I wrote a custom Compiler that acts as the brain of the language.</p>
-                <ul>
-                    <li>It understands grammar rules.</li>
-                    <li>It enforces logic.</li>
-                    <li>It catches errors before they happen, keeping the code safe.</li>
-                </ul>
-            </div>
-            <div class="tile" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
-                <i class="fa-solid fa-brain" style="font-size: 70px; color: var(--accent-code); margin-bottom: 20px;"></i>
-                <h3 style="margin-bottom: 0;">Syntax Analysis</h3>
-                <p>+ Semantic Logic</p>
-            </div>
+          <div>
+            <h3>Custom Built Intelligence</h3>
+            <p>
+              I wrote a custom Compiler that acts as the brain of the language.
+            </p>
+            <ul>
+              <li>It understands grammar rules.</li>
+              <li>It enforces logic.</li>
+              <li>
+                It catches errors before they happen, keeping the code safe.
+              </li>
+            </ul>
+          </div>
+          <div
+            class="tile"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              height: 100%;
+            "
+          >
+            <i
+              class="fa-solid fa-brain"
+              style="
+                font-size: 70px;
+                color: var(--accent-code);
+                margin-bottom: 20px;
+              "
+            ></i>
+            <h3 style="margin-bottom: 0">Syntax Analysis</h3>
+            <p>+ Semantic Logic</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 12: Powered by C -->
-<div class="slide-container" id="slide12">
-    <h2 class="slide-title">Engineered for Speed</h2>
-    <div class="content-area">
+    <!-- Slide 12: Powered by C -->
+    <div class="slide-container" id="slide12">
+      <h2 class="slide-title">Engineered for Speed</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div style="text-align: center;">
-                <div class="highlight-number">C</div>
-                <div class="highlight-label">Powered by C</div>
-            </div>
-            <div>
-                <h3>Under the Hood</h3>
-                <p>The engine running underneath Beacon is written in <strong>C</strong>, one of the fastest and most powerful languages in existence.</p>
-                <p>This technical foundation ensures that while Beacon is easy to write, it remains incredibly efficient to run.</p>
-            </div>
+          <div style="text-align: center">
+            <div class="highlight-number">C</div>
+            <div class="highlight-label">Powered by C</div>
+          </div>
+          <div>
+            <h3>Under the Hood</h3>
+            <p>
+              The engine running underneath Nervestack is written in
+              <strong>C</strong>, one of the fastest and most powerful languages
+              in existence.
+            </p>
+            <p>
+              This technical foundation ensures that while Nervestack is easy to
+              write, it remains incredibly efficient to run.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 13: Building from Scratch -->
-<div class="slide-container" id="slide13">
-    <h2 class="slide-title">Building from Scratch</h2>
-    <div class="content-area">
+    <!-- Slide 13: Building from Scratch -->
+    <div class="slide-container" id="slide13">
+      <h2 class="slide-title">Building from Scratch</h2>
+      <div class="content-area">
         <div class="two-column tiled">
-            <div style="align-items: flex-start; text-align: left;">
-                <h3>No Shortcuts</h3>
-                <p>I didn't use pre-made tools or shortcuts to build this.</p>
-                <ul style="margin-top: 15px; font-size: 18px; line-height: 1.6;">
-                    <li><i class="fa-solid fa-check" style="color: var(--accent-beacon); margin-right: 10px;"></i> Designed the Syntax</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--accent-beacon); margin-right: 10px;"></i> Built the Memory Manager</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--accent-beacon); margin-right: 10px;"></i> Coded the Loops</li>
-                    <li><i class="fa-solid fa-check" style="color: var(--accent-beacon); margin-right: 10px;"></i> Created the Data Structures</li>
-                </ul>
-            </div>
-            <div style="text-align: center; justify-content: center;">
-                <i class="fa-solid fa-hammer" style="font-size: 50px; color: var(--text-secondary); margin-bottom: 20px;"></i>
-                <p>100% Hand-Crafted Logic</p>
-            </div>
+          <div style="align-items: flex-start; text-align: left">
+            <h3>No Shortcuts</h3>
+            <p>I didn't use pre-made tools or shortcuts to build this.</p>
+            <ul style="margin-top: 15px; font-size: 18px; line-height: 1.6">
+              <li>
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent-nervestack); margin-right: 10px"
+                ></i>
+                Designed the Syntax
+              </li>
+              <li>
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent-nervestack); margin-right: 10px"
+                ></i>
+                Built the Memory Manager
+              </li>
+              <li>
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent-nervestack); margin-right: 10px"
+                ></i>
+                Coded the Loops
+              </li>
+              <li>
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent-nervestack); margin-right: 10px"
+                ></i>
+                Created the Data Structures
+              </li>
+            </ul>
+          </div>
+          <div style="text-align: center; justify-content: center">
+            <i
+              class="fa-solid fa-hammer"
+              style="
+                font-size: 50px;
+                color: var(--text-secondary);
+                margin-bottom: 20px;
+              "
+            ></i>
+            <p>100% Hand-Crafted Logic</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 14: Coding in English -->
-<div class="slide-container" id="slide14">
-    <h2 class="slide-title">Feature: Coding in English</h2>
-    <div class="content-area">
+    <!-- Slide 14: Coding in English -->
+    <div class="slide-container" id="slide14">
+      <h2 class="slide-title">Feature: Coding in English</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div>
-                <h3>Readable Syntax</h3>
-                <p>Beacon removes the cryptic symbols. It uses words like <code>traverse</code>, <code>from</code>, and <code>show</code>.</p>
-                <p>This makes the code self-explanatory. You can read it out loud and it makes sense.</p>
+          <div>
+            <h3>Readable Syntax</h3>
+            <p>
+              Nervestack removes the cryptic symbols. It uses words like
+              <code>traverse</code>, <code>from</code>, and <code>show</code>.
+            </p>
+            <p>
+              This makes the code self-explanatory. You can read it out loud and
+              it makes sense.
+            </p>
+          </div>
+          <div>
+            <div class="code-block">
+              <span class="code-comment"># A simple loop in Nervestack</span>
+              <span class="code-keyword">traverse</span> i
+              <span class="code-keyword">from</span>
+              <span class="code-num">1</span>
+              <span class="code-keyword">to</span>
+              <span class="code-num">10</span>:
+              <span class="code-keyword">show</span>
+              <span class="code-string">"Hello Family!"</span>
+              <span class="code-keyword">done</span>
             </div>
-            <div>
-                <div class="code-block">
-<span class="code-comment"># A simple loop in Beacon</span>
-<span class="code-keyword">traverse</span> i <span class="code-keyword">from</span> <span class="code-num">1</span> <span class="code-keyword">to</span> <span class="code-num">10</span>:
-    <span class="code-keyword">show</span> <span class="code-string">"Hello Family!"</span>
-<span class="code-keyword">done</span>
-                </div>
-                <p style="text-align: center; color: var(--accent-code); font-size: 16px; margin-top: 10px;"><i class="fa-solid fa-check"></i> Clean & Readable</p>
-            </div>
+            <p
+              style="
+                text-align: center;
+                color: var(--accent-code);
+                font-size: 16px;
+                margin-top: 10px;
+              "
+            >
+              <i class="fa-solid fa-check"></i> Clean & Readable
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 15: Pack Collections -->
-<div class="slide-container" id="slide15">
-    <h2 class="slide-title">New in v2.0: "Packs"</h2>
-    <div class="content-area">
+    <!-- Slide 15: Pack Collections -->
+    <div class="slide-container" id="slide15">
+      <h2 class="slide-title">New in v2.0: "Packs"</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div>
-                 <div class="code-block">
-<span class="code-comment"># Grouping items together</span>
-<span class="code-keyword">firm</span> groceries = <span class="code-keyword">pack</span>(
-    <span class="code-string">"Apples"</span>, 
-    <span class="code-string">"Milk"</span>, 
-    <span class="code-string">"Bread"</span>
-)
-                </div>
+          <div>
+            <div class="code-block">
+              <span class="code-comment"># Grouping items together</span>
+              <span class="code-keyword">firm</span> groceries =
+              <span class="code-keyword">pack</span>(
+              <span class="code-string">"Apples"</span>,
+              <span class="code-string">"Milk"</span>,
+              <span class="code-string">"Bread"</span>
+              )
             </div>
-            <div>
-                <h3>Organized Data</h3>
-                <p>With version 2.0, I introduced <strong>Packs</strong>.</p>
-                <p>This is a new way to group related items together, making it easier to manage lists of data like shopping lists, user names, or inventory.</p>
-            </div>
+          </div>
+          <div>
+            <h3>Organized Data</h3>
+            <p>With version 2.0, I introduced <strong>Packs</strong>.</p>
+            <p>
+              This is a new way to group related items together, making it
+              easier to manage lists of data like shopping lists, user names, or
+              inventory.
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 16: Smart Type Detection -->
-<div class="slide-container" id="slide16">
-    <h2 class="slide-title">Smart Type Detection</h2>
-    <div class="content-area">
+    <!-- Slide 16: Smart Type Detection -->
+    <div class="slide-container" id="slide16">
+      <h2 class="slide-title">Smart Type Detection</h2>
+      <div class="content-area">
         <div class="tiled-content">
-            <div class="tile">
-                <div class="icon"><i class="fa-solid fa-robot"></i></div>
-                <h3>Intelligent Parsing</h3>
-                <p>Beacon knows that <code>42</code> is a number and <code>"Hello"</code> is text automatically.</p>
-                <p style="margin-top: 15px; font-size: 16px; color: var(--text-secondary);">The user doesn't have to worry about defining types. The language handles the details.</p>
-            </div>
-            <div class="tile" style="background: var(--code-bg); border-color: var(--accent-code);">
-                 <div class="code-block" style="border: none; background: transparent; padding: 0; text-align: left;">
-<span class="code-keyword">set</span> age = <span class="code-num">25</span>
-<span class="code-comment">^ Beacon knows this is a Number</span>
+          <div class="tile">
+            <div class="icon"><i class="fa-solid fa-robot"></i></div>
+            <h3>Intelligent Parsing</h3>
+            <p>
+              Nervestack knows that <code>42</code> is a number and
+              <code>"Hello"</code> is text automatically.
+            </p>
+            <p
+              style="
+                margin-top: 15px;
+                font-size: 16px;
+                color: var(--text-secondary);
+              "
+            >
+              The user doesn't have to worry about defining types. The language
+              handles the details.
+            </p>
+          </div>
+          <div
+            class="tile"
+            style="background: var(--code-bg); border-color: var(--accent-code)"
+          >
+            <div
+              class="code-block"
+              style="
+                border: none;
+                background: transparent;
+                padding: 0;
+                text-align: left;
+              "
+            >
+              <span class="code-keyword">set</span> age =
+              <span class="code-num">25</span>
+              <span class="code-comment">^ Nervestack knows this is a Number</span>
 
-<span class="code-keyword">set</span> name = <span class="code-string">"Aaditya"</span>
-<span class="code-comment">^ Beacon knows this is Text</span>
-                </div>
+              <span class="code-keyword">set</span> name =
+              <span class="code-string">"Aaditya"</span>
+              <span class="code-comment">^ Nervestack knows this is Text</span>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 17: Performance -->
-<div class="slide-container" id="slide17">
-    <h2 class="slide-title">Performance</h2>
-    <div class="content-area">
+    <!-- Slide 17: Performance -->
+    <div class="slide-container" id="slide17">
+      <h2 class="slide-title">Performance</h2>
+      <div class="content-area">
         <div class="two-column">
-            <div>
-                <h3>Instant Execution</h3>
-                <p>Because of the optimized C engine, Beacon runs complex logic instantly.</p>
-                <p>Whether it's math calculations or processing text, there is zero lag between your idea and the computer's action.</p>
+          <div>
+            <h3>Instant Execution</h3>
+            <p>
+              Because of the optimized C engine, Nervestack runs complex logic
+              instantly.
+            </p>
+            <p>
+              Whether it's math calculations or processing text, there is zero
+              lag between your idea and the computer's action.
+            </p>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+              justify-content: center;
+            "
+          >
+            <div
+              style="
+                background: #334155;
+                border-radius: 8px;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <span style="width: 80px; color: #fff; font-size: 16px"
+                >Python</span
+              >
+              <div
+                style="
+                  height: 10px;
+                  width: 60%;
+                  background: #94a3b8;
+                  border-radius: 5px;
+                "
+              ></div>
             </div>
-             <div style="display: flex; flex-direction: column; gap: 15px; justify-content: center;">
-                <div style="background: #334155; border-radius: 8px; padding: 10px 20px; display: flex; align-items: center;">
-                    <span style="width: 80px; color: #fff; font-size: 16px;">Python</span>
-                    <div style="height: 10px; width: 60%; background: #94a3b8; border-radius: 5px;"></div>
-                </div>
-                <div style="background: #334155; border-radius: 8px; padding: 10px 20px; display: flex; align-items: center;">
-                    <span style="width: 80px; color: #fff; font-size: 16px;">Beacon</span>
-                    <div style="height: 10px; width: 90%; background: var(--accent-beacon); border-radius: 5px;"></div>
-                </div>
-                <p style="text-align: center; font-size: 14px; margin-top: 5px;">*Hypothetical execution speed for logic tasks</p>
+            <div
+              style="
+                background: #334155;
+                border-radius: 8px;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <span style="width: 80px; color: #fff; font-size: 16px"
+                >Nervestack</span
+              >
+              <div
+                style="
+                  height: 10px;
+                  width: 90%;
+                  background: var(--accent-nervestack);
+                  border-radius: 5px;
+                "
+              ></div>
             </div>
+            <p style="text-align: center; font-size: 14px; margin-top: 5px">
+              *Hypothetical execution speed for logic tasks
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 18: Roadmap -->
-<div class="slide-container" id="slide18">
-    <h2 class="slide-title">What's Next?</h2>
-    <div class="content-area">
+    <!-- Slide 18: Roadmap -->
+    <div class="slide-container" id="slide18">
+      <h2 class="slide-title">What's Next?</h2>
+      <div class="content-area">
         <div class="timeline-layout">
-            <div class="timeline-line"></div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-solid fa-code"></i></div>
-                <div class="timeline-content">
-                    <h3>Code Editor</h3>
-                    <p>Building a dedicated IDE</p>
-                </div>
+          <div class="timeline-line"></div>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-code"></i></div>
+            <div class="timeline-content">
+              <h3>Code Editor</h3>
+              <p>Building a dedicated IDE</p>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-solid fa-calculator"></i></div>
-                <div class="timeline-content">
-                    <h3>Math Tools</h3>
-                    <p>Advanced calculation libraries</p>
-                </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <i class="fa-solid fa-calculator"></i>
             </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"><i class="fa-solid fa-globe"></i></div>
-                <div class="timeline-content">
-                    <h3>Web Support</h3>
-                    <p>Running Beacon in the browser</p>
-                </div>
+            <div class="timeline-content">
+              <h3>Math Tools</h3>
+              <p>Advanced calculation libraries</p>
             </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"><i class="fa-solid fa-globe"></i></div>
+            <div class="timeline-content">
+              <h3>Web Support</h3>
+              <p>Running Nervestack in the browser</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<!-- Slide 19: Live Demo -->
-<div class="slide-container" id="slide19">
-    <div class="content-area" style="text-align: center;">
-        <i class="fa-solid fa-laptop-code" style="font-size: 80px; color: var(--text-primary); margin-bottom: 25px;"></i>
-        <h1 style="margin-bottom: 15px;">Live Demo</h1>
-        <p style="font-size: 26px;">Let's write some Beacon code.</p>
+    <!-- Slide 19: Live Demo -->
+    <div class="slide-container" id="slide19">
+      <div class="content-area" style="text-align: center">
+        <i
+          class="fa-solid fa-laptop-code"
+          style="
+            font-size: 80px;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+          "
+        ></i>
+        <h1 style="margin-bottom: 15px">Live Demo</h1>
+        <p style="font-size: 26px">Let's write some Nervestack code.</p>
+      </div>
     </div>
-</div>
 
-<!-- Slide 20: Thank You -->
-<div class="slide-container" id="slide20">
-    <div class="content-area" style="text-align: center;">
+    <!-- Slide 20: Thank You -->
+    <div class="slide-container" id="slide20">
+      <div class="content-area" style="text-align: center">
         <h1>Thank You</h1>
-        <p style="max-width: 700px; margin: 20px auto;">Special thanks to my family and friends for supporting my long hours of coding and debugging.</p>
-        <div style="margin-top: 40px;">
-            <p style="color: var(--accent-beacon); font-size: 22px;"><i class="fa-solid fa-heart"></i> Created by Aaditya</p>
-            <p style="font-size: 16px; color: var(--text-secondary);">Powered by Beacon v2.0.0</p>
+        <p style="max-width: 700px; margin: 20px auto">
+          Special thanks to my family and friends for supporting my long hours
+          of coding and debugging.
+        </p>
+        <div style="margin-top: 40px">
+          <p style="color: var(--accent-nervestack); font-size: 22px">
+            <i class="fa-solid fa-heart"></i> Created by Aaditya
+          </p>
+          <p style="font-size: 16px; color: var(--text-secondary)">
+            Powered by Nervestack v2.0.0
+          </p>
         </div>
+      </div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

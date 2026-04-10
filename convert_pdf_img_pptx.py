@@ -49,8 +49,8 @@ def convert_pdf_to_pptx_images(pdf_path, pptx_path):
         traceback.print_exc()
 
 if __name__ == "__main__":
-    pdf_file = "Beacon Programming Language (Text Only).pdf"
-    pptx_file = "Beacon_Programming_Language_Visual.pptx"
+    pdf_file = "Nervestack Programming Language (Text Only).pdf"
+    pptx_file = "Nervestack_Programming_Language_Visual.pptx"
     
     if os.path.exists(pdf_file):
         convert_pdf_to_pptx_images(pdf_file, pptx_file)

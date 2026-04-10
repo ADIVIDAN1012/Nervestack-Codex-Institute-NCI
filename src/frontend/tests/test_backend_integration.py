@@ -20,7 +20,7 @@ spec main() {
 
 funcall main
 """
-    p = tmp_path / "prog.bpl"
+    p = tmp_path / "prog.nspl"
     p.write_text(src)
     generate_ast_json(p.read_text())
     exe = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "compiler_backend_c", "main.exe"))
@@ -38,7 +38,7 @@ def test_signal_listen_event(tmp_path):
 listen "ev" { show("E!") }
 signal "ev"
 """
-    p = tmp_path / "prog2.bpl"
+    p = tmp_path / "prog2.nspl"
     p.write_text(src)
     generate_ast_json(p.read_text())
     exe = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "compiler_backend_c", "main.exe"))
@@ -59,7 +59,7 @@ spec main() {
 }
 funcall main
 """
-    p = tmp_path / "prog3.bpl"
+    p = tmp_path / "prog3.nspl"
     p.write_text(src)
     generate_ast_json(p.read_text())
     exe = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "compiler_backend_c", "main.exe"))
@@ -84,7 +84,7 @@ spec main() {
 }
 funcall main
 """
-    p = tmp_path / "prog4.bpl"
+    p = tmp_path / "prog4.nspl"
     p.write_text(src)
     generate_ast_json(p.read_text())
     exe = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "compiler_backend_c", "main.exe"))
@@ -107,7 +107,7 @@ spec main() {
 }
 funcall main
 """
-    p = tmp_path / "prog5.bpl"
+    p = tmp_path / "prog5.nspl"
     p.write_text(src)
     generate_ast_json(p.read_text())
     exe = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "compiler_backend_c", "main.exe"))

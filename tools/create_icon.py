@@ -1,11 +1,11 @@
 from PIL import Image, ImageDraw
 import os
 
-def create_beacon_icon():
+def create_nervestack_icon():
     # Define size and colors
     size = (256, 256)
     bg_color = (13, 17, 23) # Dark distinctive blue (GitHub Dark Dimmed style)
-    # beacon_color = (0, 255, 255) # Cyan
+    # nervestack_color = (0, 255, 255) # Cyan
     light_color = (255, 255, 255) # White
     beam_color_start = (56, 189, 248, 150) # Light blue transparent
 
@@ -98,7 +98,7 @@ def create_beacon_icon():
     if not os.path.exists(assets_dir):
         os.makedirs(assets_dir)
     
-    icon_path = os.path.join(assets_dir, 'beacon_icon.ico')
+    icon_path = os.path.join(assets_dir, 'nervestack_icon.ico')
     img.save(icon_path, format='ICO', sizes=[(256, 256), (128, 128), (64, 64), (48, 48), (32, 32), (16, 16)])
     print(f"Icon created at {icon_path}")
 
@@ -112,4 +112,4 @@ def create_beacon_icon():
     print(f"Website icon created at {png_path}")
 
 if __name__ == "__main__":
-    create_beacon_icon()
+    create_nervestack_icon()

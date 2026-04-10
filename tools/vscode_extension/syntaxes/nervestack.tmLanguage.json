@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Beacon",
+  "name": "Nervestack",
   "patterns": [
     {
       "include": "#comments"
@@ -28,27 +28,27 @@
     "comments": {
       "patterns": [
         {
-          "name": "comment.block.beacon",
+          "name": "comment.block.nervestack",
           "begin": "<\\^",
           "end": "\\^>"
         },
         {
-          "name": "comment.line.beacon",
+          "name": "comment.line.nervestack",
           "match": "<(?![\\^=]).*?>"
         }
       ]
     },
     "strings": {
-      "name": "string.quoted.double.beacon",
+      "name": "string.quoted.double.nervestack",
       "begin": "\"",
       "end": "\"",
       "patterns": [
         {
-          "name": "constant.character.escape.beacon",
+          "name": "constant.character.escape.nervestack",
           "match": "\\\\."
         },
         {
-          "name": "meta.embedded.line.beacon",
+          "name": "meta.embedded.line.nervestack",
           "begin": "\\|",
           "end": "\\|",
           "patterns": [
@@ -62,15 +62,15 @@
     "keywords": {
       "patterns": [
         {
-          "name": "keyword.control.beacon",
+          "name": "keyword.control.nervestack",
           "match": "\\b(check|alter|altern|traverse|until|halt|proceed|wait|attempt|trap|conclude|trigger|paral|hold|signal|listen|inlet|by|funcall)\\b"
         },
         {
-          "name": "keyword.other.beacon",
+          "name": "keyword.other.nervestack",
           "match": "\\b(spec|blueprint|bridge|shard|prep|forward|firm|solid|toolkit|plug|share|expose|hidden|shielded|internal|adopt|own|link|embed|ask|show|authen|transform|condense|pack|unpack)\\b"
         },
         {
-          "name": "storage.type.beacon",
+          "name": "storage.type.nervestack",
           "match": "\\b(Num|Text|Blame)\\b"
         }
       ]
@@ -78,7 +78,7 @@
     "constants": {
       "patterns": [
         {
-          "name": "constant.language.beacon",
+          "name": "constant.language.nervestack",
           "match": "\\b(On|Off|Nil)\\b"
         }
       ]
@@ -86,19 +86,19 @@
     "support": {
         "patterns": [
             {
-                "name": "support.function.beacon",
+                "name": "support.function.nervestack",
                 "match": "\\b(kind|convert)\\b"
             }
         ]
     },
     "operators": {
-      "name": "keyword.operator.beacon",
+      "name": "keyword.operator.nervestack",
       "match": "(\\+|\\-|\\*|/|==|'\\=|<=|>=|=|<|>)"
     },
     "numbers": {
-      "name": "constant.numeric.beacon",
+      "name": "constant.numeric.nervestack",
       "match": "\\b\\d+(\\.\\d+)?\\b"
     }
   },
-  "scopeName": "source.beacon"
+  "scopeName": "source.nervestack"
 }

@@ -1528,7 +1528,7 @@ Value* interpret_ast(ASTNode* node, Scope* scope) {
                      
                      // Create loop scope? Or use current scope?
                      // Usually loops have their own scope to prevent var leakage?
-                     // But Beacon might be simple. Let's use a sub-scope.
+                     // But Nervestack might be simple. Let's use a sub-scope.
                      Scope* loop_scope = create_scope(scope);
                      set_variable(loop_scope, node->data.each.var_name, loop_var);
                      
@@ -1644,7 +1644,7 @@ Value* interpret_ast(ASTNode* node, Scope* scope) {
              // Modules usually create a namespace.
              // Let's create a VAL_TOOLKIT-like structure for Module?
              // For now, simplicity: Execute body in current scope (flattened) or create a scope and assign to name.
-             // Beaconic modules seem to be namespaces.
+             // Nervestackic modules seem to be namespaces.
              result_val = (Value*)malloc(sizeof(Value));
              result_val->type = VAL_NIL;
              break;
@@ -1658,7 +1658,7 @@ Value* interpret_ast(ASTNode* node, Scope* scope) {
                  ASTNode* imported_ast = parse_ast_from_file(node->data.bring.source);
                  if (imported_ast) {
                      // 2. Create a module scope or just interpret in current scope?
-                     // Beacon 'bring' usually imports INTO current namespace or as a namespace.
+                     // Nervestack 'bring' usually imports INTO current namespace or as a namespace.
                      // If 'bring File', usually puts definitions in current scope.
                      // Let's assume unlimited import for now (interprets ProgramNode in current scope).
                      
@@ -2201,7 +2201,7 @@ ASTNode* parse_ast_from_file(const char* filename) {
 }
 
 int main(int argc, char** argv) {
-    printf("BPL running: %s\n", argv[1]); // Debug
+    printf("NSPL running: %s\n", argv[1]); // Debug
     setvbuf(stdout, NULL, _IONBF, 0);
     setvbuf(stderr, NULL, _IONBF, 0);
     if (argc < 2) {
@@ -2885,7 +2885,7 @@ void set_variable(Scope* scope, const char* name, Value* value) {
     }
 
     // If not found, define in current scope (implicit declaration as non-constant variable?)
-    // Beacon seems to allow implicit variable creation on assignment if not found?
+    // Nervestack seems to allow implicit variable creation on assignment if not found?
     // Based on previous code: yes, it appended to `scope` (which was passed in).
     define_variable(scope, name, value, false);
 }

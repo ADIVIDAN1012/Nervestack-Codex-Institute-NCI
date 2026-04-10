@@ -33,18 +33,18 @@ def compile_to_json(filename, output_filename=None):
 
 if __name__ == "__main__":
     # 1. Compile the library
-    lib_json = compile_to_json("lib_math.bpl")
+    lib_json = compile_to_json("lib_math.nspl")
     if not lib_json:
         sys.exit(1)
         
     # 2. Compile the main test file
-    test_json = compile_to_json("test_modules.bpl")
+    test_json = compile_to_json("test_modules.nspl")
     if not test_json:
         sys.exit(1)
         
     # 3. Run the runtime with the test file
     print("\n--- Executing Runtime ---")
-    result = subprocess.run(['src/runtime/BPL.exe', test_json], capture_output=True, text=True)
+    result = subprocess.run(['src/runtime/NSPL.exe', test_json], capture_output=True, text=True)
     print(result.stdout)
     if result.stderr:
         print("Errors:")

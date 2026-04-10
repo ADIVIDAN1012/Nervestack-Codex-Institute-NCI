@@ -20,7 +20,7 @@
           "modules": [
             "lib_math"
           ],
-          "source": "lib_math.bpl.json"
+          "source": "lib_math.nspl.json"
         },
         {
           "type": "ShowStatementNode",

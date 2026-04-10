@@ -101,7 +101,7 @@ try:
         
     print("AST written to ast.json. Running runtime...")
     import subprocess
-    result = subprocess.run(['src/runtime/BPL.exe', 'ast.json'], capture_output=True, text=True)
+    result = subprocess.run(['src/runtime/NSPL.exe', 'ast.json'], capture_output=True, text=True)
     print("--- Runtime Output ---")
     print(result.stdout)
     if result.stderr:

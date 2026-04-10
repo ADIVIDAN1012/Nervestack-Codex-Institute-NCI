@@ -3,7 +3,7 @@ spec main:
     
     < Import the library >
     < Note: In this runtime environment, we must import the compiled JSON AST >
-    bring lib_math from "lib_math.bpl.json"
+    bring lib_math from "lib_math.nspl.json"
     
     < Use constants >
     show "Pi is: |pi|"

@@ -101,4 +101,4 @@ def check_switch_cases(filename, start_line):
     if depth != 0:
         print(f"Parse ended with non-zero depth: {depth}")
 
-check_switch_cases(r'c:\Users\aadit\OneDrive\Desktop\project_2_Beacon\src\runtime\main.c', 752)
+check_switch_cases(r'c:\Users\aadit\OneDrive\Desktop\project_2_Nervestack\src\runtime\main.c', 752)

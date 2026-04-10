@@ -1,0 +1,18 @@
+< Nervestack Placeholder Test >
+
+show "1. Testing .. as placeholder"
+traverse .. from 1 to 3:
+    show "Looping without variable (..)"
+done
+
+show "2. Testing ... as placeholder"
+traverse ... from 1 to 2:
+    show "Looping without variable (...)"
+done
+
+show "3. Testing .... as placeholder"
+traverse .... from 1 to 1:
+    show "Looping without variable (....)"
+done
+
+show "Placeholder tests complete!"

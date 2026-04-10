@@ -21,16 +21,16 @@ This document provides a comprehensive dictionary of all keywords in the Nervest
 
 ## Control Flow
 
-| Keyword    | Meaning    | Description                                      |
-| ---------- | ---------- | ------------------------------------------------ |
-| `check`    | If         | Begins a conditional block.                      |
-| `alter`    | Else If    | A subsequent conditional block.                  |
-| `altern`   | Else       | The final block in a conditional chain.          |
-| `traverse` | For Loop   | Iterates over a sequence or range.               |
-| `until`    | While Loop | Executes a block as long as a condition is true. |
-| `halt`     | Break      | Exits a loop immediately.                        |
-| `proceed`  | Continue   | Skips to the next iteration of a loop.           |
-| `wait`     | Pass       | A no-op statement.                               |
+| Keyword     | Meaning     | Description                                               |
+| ----------- | ----------- | --------------------------------------------------------- |
+| `when`      | If          | Begins a conditional block.                               |
+| `otherwise` | Else / Elif | A subsequent conditional block or the final fallback.     |
+| `done`      | End Block   | Marks the end of a conditional, function, or loop block.  |
+| `traverse`  | For Loop    | Iterates over a sequence or range.                        |
+| `until`     | While Loop  | Executes a block as long as a condition is true.          |
+| `halt`      | Break       | Exits a loop immediately.                                 |
+| `proceed`   | Continue    | Skips to the next iteration of a loop.                    |
+| `wait`      | Pass        | A no-op statement.                                        |
 
 ---
 

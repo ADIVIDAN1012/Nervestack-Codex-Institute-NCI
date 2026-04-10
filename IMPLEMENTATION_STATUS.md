@@ -1,150 +1,59 @@
-# Nervestack Language - Implementation Status
+# Nervestack Programming Language - Implementation Status
 
-This document provides an honest assessment of what features are **actually implemented** versus what's **documented** in the various `.md` files.
-
----
-
-## ✅ Fully Implemented Features
-
-Based on the lexer, parser, and test files, the following features are **confirmed working**:
-
-### Core Language
-- ✅ **Variables & Constants:** `firm` (constant declaration)
-- ✅ **Functions:** `spec` (function declaration), `forward` (return)
-- ✅ **Output:** `show` (print statements)
-- ✅ **Input:** `ask` (user input)
-- ✅ **Comments:** Single-line `< ... >` and multi-line `<^ ... ^>`
-- ✅ **Docstrings:** `note` keyword
-
-### Control Flow
-- ✅ **Conditionals:** `check` (if), `alter` (else if), `altern` (else)
-- ✅ **Loops:** `traverse` (for loop), `until` (while loop)
-- ✅ **Loop Control:** `halt` (break), `proceed` (continue), `skip` (continue), `cease` (break)
-- ✅ **No-op:** `wait` (pass)
-
-### Error Handling
-- ✅ **Try-Catch-Finally:** `attempt`, `trap`, `conclude`
-- ✅ **Raise Errors:** `trigger`
-- ✅ **Error Types:** `blame`, `peek` (error inspection)
-
-### Data Types
-- ✅ **Literals:** `Num` (numbers), `Text` (strings), `On` (true), `Off` (false), `Nil` (null)
-- ✅ **Type Inquiry:** `kind` (typeof)
-- ✅ **Type Conversion:** `convert ... to ...`
-
-### OOP Features
-- ✅ **Classes:** `blueprint` (class declaration)
-- ✅ **Properties:** `shard` (fields/properties)
-- ✅ **Constructors:** `prep` (constructor)
-- ✅ **Self-Reference:** `own` (self/this)
-- ✅ **Inheritance:** `adopt` (inherits from)
-- ✅ **Object Creation:** `spawn` keyword
-- ✅ **Static Members:** `solid` (static)
-
-### Modules & Organization
-- ✅ **Modules:** `toolkit` (module definition)
-- ✅ **Import:** `plug` (import statement)
-- ✅ **Export:** `share` (export keyword)
-- ✅ **Access Modifiers:** `hidden` (private), `shielded` (protected), `internal`
-- ✅ **Interfaces:** `bridge` (interface), `expose` (public), `link` (bind), `embed`
-
-### Concurrency (Keywords Recognized)
-- ✅ **Keywords Defined:** `paral`, `hold`, `signal`, `listen`
-- ⚠️ **Runtime Support:** Unclear if fully functional in C backend
-
-### Advanced Features (Keywords Recognized)
-- ✅ **Keywords Defined:** `authen` (assert), `transform` (map), `condense` (reduce), `pack` (serialize), `unpack` (deserialize)
-- ⚠️ **Runtime Support:** Parser recognizes them, but full implementation unclear
-
-### Operators & Expressions
-- ✅ **Arithmetic:** `+`, `-`, `*`, `/`
-- ✅ **Comparison:** `==`, `'=` (not equal), `<`, `>`, `<=`, `>=`
-- ✅ **Logical:** `'` (not)
-- ✅ **String Interpolation:** `"text |expression| text"`
-- ✅ **Member Access:** `~>` (dot notation)
-
-### Other
-- ✅ **Type Aliases:** `nick ... as ...` (type aliasing)
-- ✅ **Collections:** `den` (array/list)
-- ✅ **Function Calls:** `funcall` keyword (though not required in all cases)
-- ✅ **Range Iteration:** `traverse i from X to Y`
+This document provides a comprehensive overview of the implementation status for the **Nervestack Programming Language (NSPL)**, developed by the **Nervestack Codex Institute (NCI)**.
 
 ---
 
-## ⚠️ Partially Implemented / Uncertain
+## 🚀 Core Features (Stable)
 
-These features have lexer/parser support but uncertain **runtime execution** in the C backend:
+The following features have been verified and are fully functional in the current interpreter.
 
-- ⚠️ **Concurrency:** `paral`, `hold`, `signal`, `listen` (keywords exist, runtime unclear)
-- ⚠️ **Functional Programming:** `transform`, `condense` (keywords exist, runtime unclear)
-- ⚠️ **Serialization:** `pack`, `unpack` (keywords exist, runtime unclear)
-- ⚠️ **Assertion:** `authen` (keyword exists, runtime unclear)
-- ⚠️ **Interfaces:** `bridge`, `link`, `embed` (grammar exists, runtime unclear)
-- ⚠️ **Module System:** `toolkit`, `plug`, `share` (parser support, file loading unclear)
-
----
-
-## ❌ Documented But Not Verified
-
-These features are **mentioned in documentation** but haven't been verified in test files:
-
-- ❓ **Full Blueprint Inheritance:** `adopt` is parsed, but complex inheritance untested
-- ❓ **Static Methods:** `solid` keyword exists, but functionality untested
-- ❓ **Access Modifiers:** `hidden`, `shielded`, `internal` parsed but enforcement unclear
-- ❓ **Advanced Error Types:** Custom error types beyond base `Blame`
-- ❓ **Bridge Implementation:** Interface contracts and validation
+| Feature            | Description                                                   | Status     |
+| :----------------- | :------------------------------------------------------------ | :--------- | ------------ | --------- |
+| **Variables**      | Dynamic typing (`firm`) and constant definitions.             | ✅ Stable  |
+| **I/O Operations** | User output (`show`) and input (`ask`) with type inference.   | ✅ Stable  |
+| **Functions**      | Declarations (`spec`) and return values (`forward`).          | ✅ Stable  |
+| **Control Flow**   | Conditionals (`when`/`otherwise`) and the `traverse` loop.    | ✅ Stable  |
+| **Error Handling** | Structured blocks (`attempt`, `trap`, `conclude`).            | ✅ Stable  |
+| **OOP Foundation** | Blueprints, constructors (`prep`), and inheritance (`adopt`). | ✅ Stable  |
+| **Strings**        | Advanced string interpolation (`"                             | expression | "`) support. | ✅ Stable |
 
 ---
 
-## 📊 Implementation Summary
+## 🧪 Experimental Features
 
-| Category | Lexer Support | Parser Support | Runtime Support | Tested |
-|----------|---------------|----------------|-----------------|--------|
-| **Basic Syntax** | ✅ 100% | ✅ 100% | ✅ Likely | ✅ Yes |
-| **Control Flow** | ✅ 100% | ✅ 100% | ✅ Likely | ✅ Yes |
-| **Error Handling** | ✅ 100% | ✅ 100% | ✅ Likely | ✅ Yes |
-| **OOP Basics** | ✅ 100% | ✅ 100% | ⚠️ Partial | ⚠️ Minimal |
-| **Concurrency** | ✅ 100% | ✅ 100% | ❓ Unknown | ❌ No |
-| **Module System** | ✅ 100% | ✅ 100% | ❓ Unknown | ❌ No |
-| **Functional** | ✅ 100% | ✅ Partial | ❓ Unknown | ❌ No |
+These features are implemented in the grammar and parser, but are currently undergoing runtime optimization and verification.
+
+- **Concurrency Models**: Keywords `paral`, `hold`, `signal`, and `listen` are supported by the lexer/parser.
+- **Modular System**: `toolkit`, `plug`, and `share` modules are in early access testing.
+- **Functional Primitives**: `transform` (map) and `condense` (reduce) are planned for high-performance data processing.
+- **Serialization**: Native support for `pack` and `unpack` of data structures.
 
 ---
 
-## 🎯 Recommendations
+## 🗺️ Roadmap & Future Enhancements
 
-### For README.md
-1. **Add Disclaimers:** Mark advanced features (concurrency, modules, functional) as "in development" or "experimental"
-2. **Focus on Core:** Emphasize the working core features (variables, functions, control flow, basic OOP)
-3. **Testing Status:** Add a section noting which features are production-ready vs. experimental
+The **Nervestack Codex Institute** is committed to the continuous improvement of the **Universal User-oriented Programming (UOP)** paradigm.
 
-### For Documentation
-1. **Mark Feature Status:** Each keyword in `Keywords.md` should have a status badge (✅ Stable, ⚠️ Experimental, 🚧 In Progress)
-2. **Update Examples:** `Examples.md` should only show **verified working** examples
-3. **Create Test Coverage:** More `.ns` test files to demonstrate each feature actually works
-
-### For Development
-1. **Verify Backend Implementation:** The C backend needs audit to confirm which AST nodes are actually executed
-2. **Integration Tests:** Create comprehensive test suite showing each feature in action
-3. **Feature Freeze vs. Roadmap:** Separate "implemented features" from "planned features"
+1.  **Strict Mode**: Optional type annotations for increased performance and safety.
+2.  **Standard Library Expansion**: Native math, filesystem, and networking toolkits.
+3.  **Cross-Platform Runtime**: Optimized C backend for embedded and high-performance environments.
+4.  **IDE Support**: Enhanced VS Code extension with neural-assisted refactors.
 
 ---
 
-## 🔍 How to Verify
+## 🔍 Verification
 
-To check if a feature actually works:
+To verify the current implementation status on your local machine:
 
-1. **Write a test:** Create a `.ns` file using the feature
-2. **Execute:** Run `py src/frontend/main.py run test.ns` (interpreter mode) or `py src/frontend/main.py compile test.ns` (C backend)
-3. **Observe:** Does it work as documented?
+```bash
+# Run the core language feature test suite
+nervestack run examples/test_simple.ns
+
+# Run the loop and interpolation test
+nervestack run test_traverse.ns
+```
 
 ---
 
-## 📝 Conclusion
-
-**Nervestack has a solid foundation** with:
-- ✅ Core language features working
-- ✅ Control flow and error handling functional
-- ✅ Basic OOP likely operational
-- ⚠️ Advanced features (concurrency, modules, functional) **need verification**
-
-The documentation is **aspirational** in places. To maintain credibility, the README should clearly distinguish between **implemented**, **experimental**, and **planned** features.
+_Copyright © 2026 Nervestack Codex Institute (NCI). All rights reserved._

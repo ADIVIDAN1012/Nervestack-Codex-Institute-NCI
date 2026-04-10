@@ -1,5 +1,5 @@
 spec main() {
-    show("BPL.exe Test - Dynamic Type Conversion")
+    show("NSPL.exe Test - Dynamic Type Conversion")
     show("Enter a number (42):")
     firm num = ask("")
     show("Success! Number stored.")

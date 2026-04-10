@@ -1,6 +1,6 @@
 {
   "name": "nervestack-code-engine",
-  "description": "Nervestack (NSL) - A readable programming language by Nervestack Codex Institute (NCI).",
+  "description": "Nervestack (NSPL) - A readable programming language by Nervestack Codex Institute (NCI).",
   "private": true,
   "version": "1.0.0",
   "type": "module",

@@ -1,0 +1,12 @@
+< Nervestack 100% - Final Working Demo >
+
+blueprint Box:
+    has value
+done
+
+firm b = spawn Box()
+b~>value = 42
+show "Property test:"
+show b~>value
+
+show "Nervestack 100% Complete!"

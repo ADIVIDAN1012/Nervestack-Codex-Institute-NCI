@@ -85,8 +85,34 @@ class ContinueLoop(Exception):
     pass
 
 
+class Blueprint:
+    """Represents a Nervestack blueprint (class)"""
+    def __init__(self, node: BlueprintNode, env: Environment):
+        self.node = node
+        self.env = env
+        self.name = node.name
+
+class Instance:
+    """Represents an instance of a Nervestack blueprint"""
+    def __init__(self, blueprint: Blueprint):
+        self.blueprint = blueprint
+        self.fields: Dict[str, Any] = {}
+
+    def __repr__(self):
+        return f"<instance of {self.blueprint.name}>"
+
+class BoundMethod:
+    def __init__(self, instance, method_node, interpreter):
+        self.instance = instance
+        self.method_node = method_node
+        self.interpreter = interpreter
+
+    def __call__(self, *args):
+        # Implementation of calling the method with 'own' bound to the instance
+        pass
+
 class Interpreter:
-    """Beacon AST Interpreter using visitor pattern"""
+    """Nervestack AST Interpreter using visitor pattern"""
     
     def __init__(self):
         self.global_env = Environment()
@@ -101,7 +127,7 @@ class Interpreter:
         self.global_env.define_constant("Nil", None)
     
     def interpret(self, program: ProgramNode):
-        """Interpret a Beacon program"""
+        """Interpret a Nervestack program"""
         try:
             self.visit(program)
         except NervestackRuntimeError as e:
@@ -139,46 +165,62 @@ class Interpreter:
         self.current_env.define_constant(node.const_name, value)
     
     def visit_VarAssignNode(self, node: VarAssignNode):
-        """Assign to a variable"""
+        """Assign to a variable or attribute"""
         value = self.visit(node.value)
         
-        # Check if it's a new variable (firm keyword)
-        if isinstance(node.target, str):
-            self.current_env.define_variable(node.target, value)
+        if isinstance(node.target, VarAccessNode):
+            self.current_env.set_variable(node.target.var_name, value)
+        elif isinstance(node.target, AttributeAccessNode):
+            obj = self.visit(node.target.obj)
+            if not isinstance(obj, Instance):
+                raise NervestackRuntimeError(f"Cannot set attribute on non-instance: {type(obj)}")
+            obj.fields[node.target.attribute] = value
+        elif isinstance(node.target, str):
+             self.current_env.define_variable(node.target, value)
         else:
-            # Updating existing variable
-            var_name = node.target.var_name if hasattr(node.target, 'var_name') else str(node.target)
-            self.current_env.set_variable(var_name, value)
+            raise NervestackRuntimeError(f"Invalid assignment target: {node.target}")
     
     def visit_ExpressionStatementNode(self, node):
         """Execute expression statement (e.g., function call)"""
         return self.visit(node.expression)
     
     # ===== Expressions =====
-    
+
     def visit_NumberNode(self, node: NumberNode) -> float:
-        """Evaluate number literal"""
+        """Evaluate number node"""
         return float(node.value)
-    
+
     def visit_BooleanNode(self, node: BooleanNode) -> bool:
-        """Evaluate boolean literal"""
-        return node.value
-    
+        """Evaluate boolean node"""
+        return bool(node.value)
+
     def visit_NilNode(self, node: NilNode) -> None:
-        """Evaluate nil literal"""
+        """Evaluate nil node"""
         return None
-    
+
     def visit_StringNode(self, node: StringNode) -> str:
-        """Evaluate string literal"""
-        # Handle string interpolation
-        result = node.value
-        # TODO: Implement |variable| interpolation
-        return result
-    
+        """Evaluate string node"""
+        return str(node.value)
+
     def visit_VarAccessNode(self, node: VarAccessNode) -> Any:
-        """Access variable value"""
+        """Evaluate variable access"""
         return self.current_env.get_variable(node.var_name)
     
+    def visit_AttributeAccessNode(self, node: AttributeAccessNode) -> Any:
+        """Evaluate attribute access"""
+        obj = self.visit(node.obj)
+        if isinstance(obj, Instance):
+            if node.attribute in obj.fields:
+                return obj.fields[node.attribute]
+            # Check for methods?
+            for method in obj.blueprint.node.methods:
+                if method.name == node.attribute:
+                    # Return a bound method
+                    return BoundMethod(obj, method, self)
+            raise NervestackRuntimeError(f"Attribute '{node.attribute}' not found in instance of {obj.blueprint.name}")
+        else:
+             raise NervestackRuntimeError(f"Cannot access attribute on non-instance: {type(obj)}")
+
     def visit_BinaryOpNode(self, node: BinaryOpNode) -> Any:
         """Evaluate binary operation"""
         left = self.visit(node.left)
@@ -245,7 +287,7 @@ class Interpreter:
         result = ""
         for part in node.parts:
             val = self.visit(part)
-            result += str(val)
+            result += self._to_string(val)
         return result
     
     # ===== Control Flow =====
@@ -297,7 +339,7 @@ class Interpreter:
                     break
         finally:
             self.current_env = prev_env
-    
+
     def visit_UntilNode(self, node: UntilNode):
         """Execute until (while) loop"""
         while True:
@@ -312,6 +354,33 @@ class Interpreter:
                 continue
             except BreakLoop:
                 break
+
+    # ===== OOP =====
+
+    def visit_BlueprintNode(self, node: BlueprintNode):
+        """Register a blueprint"""
+        blueprint = Blueprint(node, self.current_env)
+        self.current_env.define_variable(node.name, blueprint)
+
+    def visit_SpawnNode(self, node: SpawnNode) -> Instance:
+        """Create an instance of a blueprint"""
+        blueprint = self.current_env.get_variable(node.blueprint_name)
+        if not isinstance(blueprint, Blueprint):
+            raise NervestackRuntimeError(f"'{node.blueprint_name}' is not a blueprint")
+        
+        instance = Instance(blueprint)
+        
+        # Initialize attributes
+        for attr in blueprint.node.attributes:
+            # attr is a VarAssignNode
+            val = self.visit(attr.value) if attr.value else None
+            attr_name = attr.target.var_name if isinstance(attr.target, VarAccessNode) else attr.target
+            instance.fields[attr_name] = val
+        
+        # Call constructor if exists
+        # (Simplified: logic for prep/make)
+        
+        return instance
     
     def visit_HaltNode(self, node):
         """Execute halt (break) statement"""

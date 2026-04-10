@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "Beacon",
-    "scopeName": "source.beacon",
+    "name": "Nervestack",
+    "scopeName": "source.nervestack",
     "patterns": [
         {
             "include": "#keywords"
@@ -22,41 +22,41 @@
     "repository": {
         "keywords": {
             "patterns": [{
-                "name": "keyword.control.beacon",
+                "name": "keyword.control.nervestack",
                 "match": "\\b(spec|funcall|forward|check|alter|altern|until|traverse|ask|show|erase|ignore|skip|spill|convert|off|on|both|either|no|source|universal|within|equal|attempt|trap|conclude|authen|condense|tag|solve|private|protected|public|internal|expose|paral|hold|flux|barrier|permit|signal|inlet|fetch|modify|seal|kind|adopt|father|child|slip|wipe|transform|den|pack|unpack|listen|trigger|track|trace|watch|plug|share|toolkit|bloc|embed|bridge|link|belong|infuse|peek|assert|skelet|decon|from|to|nick|blueprint)\\b"
             }, {
-                "name": "support.function.beacon",
+                "name": "support.function.nervestack",
                 "match": "\\b(kind|avail|exist|output|absol|Roff|exponent|maximum|minimum|length|reverse|sort|to_text|to_list|apply|map|filter|props|methods|time_now|halt|ask|tag)\\b"
             }]
         },
         "strings": {
-            "name": "string.quoted.double.beacon",
+            "name": "string.quoted.double.nervestack",
             "begin": "\"",
             "end": "\"",
             "patterns": [
                 {
-                    "name": "constant.character.escape.beacon",
+                    "name": "constant.character.escape.nervestack",
                     "match": "\\\\."
                 }
             ]
         },
         "comments": {
             "patterns": [{
-                "name": "comment.line.angle-bracket.beacon",
+                "name": "comment.line.angle-bracket.nervestack",
                 "begin": "<",
                 "end": ">"
             }, {
-                "name": "comment.block.beacon",
+                "name": "comment.block.nervestack",
                 "begin": "<\\^",
                 "end": "\\^>"
             }]
         },
         "numbers": {
-            "name": "constant.numeric.beacon",
+            "name": "constant.numeric.nervestack",
             "match": "\\b\\d+(\\.\\d+)?\\b"
         },
         "operators": {
-            "name": "keyword.operator.beacon",
+            "name": "keyword.operator.nervestack",
             "match": "==|!=|<=|>=|="
         }
     }

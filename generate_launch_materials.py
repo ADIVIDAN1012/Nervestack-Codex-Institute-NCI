@@ -9,7 +9,7 @@ def create_docx(filename):
     doc = Document()
     
     # Title
-    title = doc.add_heading('Big Launch: Beacon Programming Language', 0)
+    title = doc.add_heading('Big Launch: Nervestack Programming Language', 0)
     
     # Intro
     p = doc.add_paragraph()
@@ -17,10 +17,10 @@ def create_docx(filename):
     runner.bold = True
     runner.font.size = Pt(14)
     
-    doc.add_paragraph("Hey everyone! I’m super excited to share Beacon (BPL) – a project I’ve been building from scratch. It’s a new coding language designed to be as readable as English but powered by a fast C engine. ⚡")
+    doc.add_paragraph("Hey everyone! I’m super excited to share Nervestack (NSPL) – a project I’ve been building from scratch. It’s a new coding language designed to be as readable as English but powered by a fast C engine. ⚡")
     
     # Features
-    doc.add_heading('Why Beacon?', level=1)
+    doc.add_heading('Why Nervestack?', level=1)
     
     features = [
         "Readable Syntax: Designed to feel like natural language.",
@@ -42,7 +42,7 @@ def create_docx(filename):
     
     p = doc.add_paragraph()
     p.add_run("🌐 Website: ").bold = True
-    p.add_run("https://adividan1012.github.io/Beacon-Labs/")
+    p.add_run("https://adividan1012.github.io/Nervestack-NCI/")
     
     p = doc.add_paragraph()
     p.add_run("💬 Join WhatsApp Community: ").bold = True
@@ -60,14 +60,14 @@ def create_pptx(filename):
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
     
-    title.text = "Beacon (BPL)"
+    title.text = "Nervestack (NSPL)"
     subtitle.text = "Project Launch v2.0.0\nCreated by Aaditya"
     
-    # Slide 2: What is Beacon?
+    # Slide 2: What is Nervestack?
     slide_layout = prs.slide_layouts[1] # Title and Content
     slide = prs.slides.add_slide(slide_layout)
     title = slide.shapes.title
-    title.text = "What is Beacon?"
+    title.text = "What is Nervestack?"
     
     content = slide.placeholders[1]
     content.text = "A new programming language built from scratch."
@@ -118,7 +118,7 @@ def create_pptx(filename):
     
     tf = content.text_frame
     p = tf.add_paragraph()
-    p.text = "🌐 Website: adividan1012.github.io/Beacon-Labs"
+    p.text = "🌐 Website: adividan1012.github.io/Nervestack-NCI"
     p.level = 0
     
     p = tf.add_paragraph()
@@ -129,5 +129,5 @@ def create_pptx(filename):
     print(f"Created {filename}")
 
 if __name__ == "__main__":
-    create_docx("Beacon_Launch_Announcement.docx")
-    create_pptx("Beacon_Launch_Presentation.pptx")
+    create_docx("Nervestack_Launch_Announcement.docx")
+    create_pptx("Nervestack_Launch_Presentation.pptx")

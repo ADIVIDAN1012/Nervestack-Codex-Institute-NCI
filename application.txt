@@ -1,0 +1,41 @@
+Nervestack Programming Language (NSPL) - Use Cases and Applications
+
+The Nervestack Programming Language, developed by the Nervestack Codex Institute (NCI), is built on the Universal User-Oriented Programming (UOP) paradigm. Its design prioritizes human intuition and readability, making it suitable for several high-impact use cases:
+
+1. Educational Foundation
+   - Ideal for teaching the core logic of programming to beginners.
+   - Replaces abstract syntax (like {}, ++, &&) with natural language keywords (firm, show, traverse, check).
+   - Allows students to focus on algorithmic thinking rather than memorizing complex symbols.
+
+2. Auditable Rules Engines
+   - Perfect for business logic, financial rules, or legal governance systems where non-technical stakeholders must be able to verify the logic.
+   - Code "reads like a manual," making it self-documenting and easy to audit for compliance.
+
+3. Highly Readable Scripting
+   - Useful for general-purpose automation where long-term maintainability is a priority.
+   - The descriptive nature of the language reduces the need for heavy commenting and lowers the entry barrier for new developers joining a project.
+
+4. Experimental Concurrency Modeling
+   - Provides accessible primitives for parallel execution (paral, hold) and event-driven architectures (signal, listen).
+   - Serves as a research platform for simplified concurrency models.
+
+5. System Architecture Design
+   - The "Blueprint" and "Bridge" systems allow for defining complex object-oriented structures and interfaces that are human-readable but strictly enforced by the compiler.
+
+Value of Rebranding to Nervestack (NCI):
+- Established a professional and unique project identity under the Nervestack Codex Institute.
+- Introduced the streamlined .ns file extension for a better developer workflow.
+- Standardized the CLI toolchain for a cohesive experience from lexing to interpretation.
+- Clarified the development roadmap by distinguishing between stable, experimental, and planned features.
+
+Example Syntax:
+spec calculate_tax with income:
+    check (income > 50000):
+        forward income * 0.20
+    otherwise:
+        forward income * 0.10
+    done
+done
+
+firm tax = funcall calculate_tax(60000)
+show "The calculated tax is: |tax|"

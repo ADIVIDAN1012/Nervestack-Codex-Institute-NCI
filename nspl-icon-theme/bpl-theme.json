@@ -1,7 +1,7 @@
 {
   "iconDefinitions": {
-    "_bpl": {
-      "iconPath": "./icons/Beacon-logo.png"
+    "_nspl": {
+      "iconPath": "./icons/Nervestack-logo.png"
     },
     "_file": { "iconPath": "../../icons/default_file.svg" },
     "_folder": { "iconPath": "../../icons/default_folder.svg" },
@@ -708,8 +708,8 @@
     "_f_bolt": { "iconPath": "../../icons/file_type_bolt.svg" },
     "_f_bosque": { "iconPath": "../../icons/file_type_bosque.svg" },
     "_f_bower": { "iconPath": "../../icons/file_type_bower.svg" },
-    "_f_bpl": {
-      "iconPath": "../../../../../AppData/Roaming/Code/User/vsicons-custom-icons/file_type_bpl.svg"
+    "_f_nspl": {
+      "iconPath": "../../../../../AppData/Roaming/Code/User/vsicons-custom-icons/file_type_nspl.svg"
     },
     "_f_browserslist": { "iconPath": "../../icons/file_type_browserslist.svg" },
     "_f_bruno": { "iconPath": "../../icons/file_type_bruno.svg" },
@@ -4864,7 +4864,7 @@
     "nix": "_f_nix",
     "nsis": "_f_nsi",
     "nfl": "_f_nsi",
-    "nsl": "_f_nsi",
+    "NSPL": "_f_nsi",
     "bridlensis": "_f_nsi",
     "nunjucks": "_f_nunjucks",
     "objective-c": "_f_objectivec",
@@ -6049,7 +6049,7 @@
       "so": "_f_binary",
       "blend": "_f_blender",
       "bb": "_f_blitzbasic",
-      "_f_bpl": { "iconPath": "./icons/Beacon-logo.png" },
+      "_f_nspl": { "iconPath": "./icons/Nervestack-logo.png" },
       "buf.yaml": "_f_buf",
       "buf.yml": "_f_buf",
       "buf.gen.yml": "_f_buf",
@@ -8191,7 +8191,7 @@
       "nix": "_f_nix",
       "nsis": "_f_nsi",
       "nfl": "_f_nsi",
-      "nsl": "_f_nsi",
+      "NSPL": "_f_nsi",
       "bridlensis": "_f_nsi",
       "nunjucks": "_f_nunjucks",
       "objective-c": "_f_objectivec",

@@ -1,12 +1,12 @@
 {
-  "name": "beacon",
-  "displayName": "Beacon",
-  "description": "Language support for Beacon",
+  "name": "nervestack",
+  "displayName": "Nervestack",
+  "description": "Language support for Nervestack",
   "version": "2.0.0",
-  "publisher": "BeaconLabs",
+  "publisher": "NervestackNCI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BeaconLabs/beacon-vscode-extension.git"
+    "url": "https://github.com/NervestackNCI/nervestack-vscode-extension.git"
   },
   "icon": "icon.png",
   "engines": {
@@ -17,20 +17,20 @@
   ],
   "contributes": {
     "languages": [{
-      "id": "beacon",
-      "aliases": ["Beacon", "beacon"],
-      "extensions": [".bpl"],
+      "id": "nervestack",
+      "aliases": ["Nervestack", "nervestack"],
+      "extensions": [".nspl"],
       "configuration": "./language-configuration.json"
     }],
     "grammars": [{
-      "language": "beacon",
-      "scopeName": "source.beacon",
-      "path": "./syntaxes/beacon.tmLanguage.json"
+      "language": "nervestack",
+      "scopeName": "source.nervestack",
+      "path": "./syntaxes/nervestack.tmLanguage.json"
     }],
     "themes": [{
-      "label": "Beacon Dark",
+      "label": "Nervestack Dark",
       "uiTheme": "vs-dark",
-      "path": "./themes/beacon-color-theme.json"
+      "path": "./themes/nervestack-color-theme.json"
     }]
   }
 }

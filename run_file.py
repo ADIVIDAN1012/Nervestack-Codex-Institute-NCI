@@ -7,7 +7,7 @@ from lexer import Lexer
 from parser import Parser
 import subprocess
 
-def run_beacon_file(filename):
+def run_nervestack_file(filename):
     print(f"--- Running {filename} ---")
     try:
         with open(filename, 'r') as f:
@@ -26,8 +26,8 @@ def run_beacon_file(filename):
             json.dump(ast.to_dict(), f, indent=2)
             
         print("Executing Runtime...")
-        # Run BPL.exe with the JSON file
-        result = subprocess.run(['src/runtime/BPL.exe', ast_json_path], capture_output=True, text=True)
+        # Run NSPL.exe with the JSON file
+        result = subprocess.run(['src/runtime/NSPL.exe', ast_json_path], capture_output=True, text=True)
         print("Output:")
         print(result.stdout)
         if result.stderr:
@@ -39,6 +39,6 @@ def run_beacon_file(filename):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python run_file.py <file.beacon>")
+        print("Usage: python run_file.py <file.nervestack>")
     else:
-        run_beacon_file(sys.argv[1])
+        run_nervestack_file(sys.argv[1])

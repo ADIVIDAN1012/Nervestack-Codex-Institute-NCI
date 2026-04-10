@@ -7,16 +7,17 @@ The dynamic type conversion feature has been implemented in the C backend. To te
 ### Option 1: Using a test file
 
 1. Navigate to `compiler_frontend_py`:
+
    ```powershell
    cd compiler_frontend_py
    ```
 
-2. Create a simple `.NSL` file that doesn't use ask in expression context (since parser doesn't support it yet)
+2. Create a simple `.NSPL` file that doesn't use ask in expression context (since parser doesn't support it yet)
 
 3. Compile and run:
    ```powershell
-   py frontend.py yourtest.NSL
-   cd ..\compiler_backend_c  
+   py frontend.py yourtest.NSPL
+   cd ..\compiler_backend_c
    .\main.exe ..\ast.json
    ```
 
@@ -27,6 +28,7 @@ Since `ask` appears to be a statement and not an expression in the current parse
 ### What was implemented
 
 The C backend now has `detect_and_convert_type()` that automatically converts:
+
 - `"42"` → Number (42.0)
 - `"3.14"` → Number (3.14)
 - `"On"` → Boolean (true)

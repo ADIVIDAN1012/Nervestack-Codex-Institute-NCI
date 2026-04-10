@@ -5,7 +5,7 @@ from src.frontend.lexer import Lexer
 from src.frontend.parser import Parser
 
 try:
-    with open('test_float.bpl', 'r') as f:
+    with open('test_float.nspl', 'r') as f:
         code = f.read()
     lexer = Lexer(code)
     tokens = lexer.tokenize()

@@ -1,7 +1,7 @@
 < Absolute Simplest - Just Blueprint >
 
-blueprint SimpleBox {
-    shard x
-}
+blueprint SimpleBox:
+    has x
+done
 
 show("Nervestack is working!")

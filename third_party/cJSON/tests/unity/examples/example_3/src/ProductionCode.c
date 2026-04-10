@@ -18,7 +18,7 @@ int FindFunction_WhichIsBroken(int NumberToFind)
     return 0;
 }
 
-int FunctionWhichReturnsLocalVariable(void)
+int FunctionWhichReturNSPLocalVariable(void)
 {
     return Counter;
 }

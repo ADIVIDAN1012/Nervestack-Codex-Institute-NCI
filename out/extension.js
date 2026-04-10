@@ -29,12 +29,12 @@ const keywordDescriptions = {
     "conclude": "The `finally` block in an `attempt...trap` structure."
 };
 function activate(context) {
-    const completionProvider = vscode.languages.registerCompletionItemProvider('beacon', {
+    const completionProvider = vscode.languages.registerCompletionItemProvider('nervestack', {
         provideCompletionItems(document, position) {
             return allKeywords.map(keyword => new vscode.CompletionItem(keyword, vscode.CompletionItemKind.Keyword));
         }
     });
-    const hoverProvider = vscode.languages.registerHoverProvider('beacon', {
+    const hoverProvider = vscode.languages.registerHoverProvider('nervestack', {
         provideHover(document, position) {
             const range = document.getWordRangeAtPosition(position);
             const word = document.getText(range);

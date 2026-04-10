@@ -2,23 +2,23 @@
 
 ## Executive Summary
 
-**Nervestack (NSL)** is a uniquely-expressive compiled language that combines Python's readability, C's performance, and Java's structure while introducing novel constructs for modern software development.
+**Nervestack (NSPL)** is a uniquely-expressive compiled language that combines Python's readability, C's performance, and Java's structure while introducing novel constructs for modern software development.
 
 ---
 
 ## Feature Comparison Matrix
 
-| Feature | Nervestack | Python | Java | C |
-|---------|--------|--------|------|---|
-| **Type System** | Dynamic | Dynamic | Static | Static |
-| **Memory Model** | Manual + Scopes | GC | GC | Manual |
-| **Compilation** | AST→JSON→C Runtime | Interpreted/JIT | Bytecode→JVM | Native |
-| **OOP** | Blueprint/Spawn | Class-based | Class-based | Struct-based |
-| **Collections** | `pack()` | List/Dict | ArrayList/HashMap | Arrays |
-| **Error Handling** | `attempt`/`trap`/`trigger` | try/except | try/catch | Return codes |
-| **Modules** | `bring` + `toolkit` | import | import | #include |
-| **Events** | `signal`/`listen` | ❌ (libs only) | ❌ (libs only) | ❌ |
-| **Concurrency** | `paral` | async/threading | Threading | pthread |
+| Feature            | Nervestack                 | Python          | Java              | C            |
+| ------------------ | -------------------------- | --------------- | ----------------- | ------------ |
+| **Type System**    | Dynamic                    | Dynamic         | Static            | Static       |
+| **Memory Model**   | Manual + Scopes            | GC              | GC                | Manual       |
+| **Compilation**    | AST→JSON→C Runtime         | Interpreted/JIT | Bytecode→JVM      | Native       |
+| **OOP**            | Blueprint/Spawn            | Class-based     | Class-based       | Struct-based |
+| **Collections**    | `pack()`                   | List/Dict       | ArrayList/HashMap | Arrays       |
+| **Error Handling** | `attempt`/`trap`/`trigger` | try/except      | try/catch         | Return codes |
+| **Modules**        | `bring` + `toolkit`        | import          | import            | #include     |
+| **Events**         | `signal`/`listen`          | ❌ (libs only)  | ❌ (libs only)    | ❌           |
+| **Concurrency**    | `paral`                    | async/threading | Threading         | pthread      |
 
 ---
 
@@ -27,6 +27,7 @@
 ### Hello World
 
 **Nervestack:**
+
 ```Nervestack
 spec main:
     show "Hello, World!"
@@ -35,6 +36,7 @@ main()
 ```
 
 **Python:**
+
 ```python
 def main():
     print("Hello, World!")
@@ -42,6 +44,7 @@ main()
 ```
 
 **Java:**
+
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -51,6 +54,7 @@ public class Main {
 ```
 
 **C:**
+
 ```c
 #include <stdio.h>
 int main() {
@@ -62,6 +66,7 @@ int main() {
 ### Loop Syntax
 
 **Nervestack (Traverse):**
+
 ```Nervestack
 traverse i from 1 to 10:
     show i
@@ -69,6 +74,7 @@ done
 ```
 
 **Python:**
+
 ```python
 for i in range(1, 11):
     print(i)
@@ -83,12 +89,14 @@ for i in range(1, 11):
 ## Unique Nervestack Features
 
 ### 1. **Pack Collections**
+
 ```Nervestack
 firm numbers = pack(1, 2, 3, 4, 5)
 firm mixed = pack("text", 42, On)
 ```
 
 ### 2. **Built-in Events**
+
 ```Nervestack
 listen "UserLogin":
     show "User logged in!"
@@ -97,6 +105,7 @@ signal "UserLogin"
 ```
 
 ### 3. **Natural Language Keywords**
+
 - `spec` (function), `firm` (const), `forward` (return), `done` (end)
 
 ---

@@ -44,6 +44,8 @@ class Lexer:
         'a': 'A',
         'an': 'AN',
         'blueprint': 'BLUEPRINT',
+        'when': 'WHEN',
+        'otherwise': 'OTHERWISE',
         'has': 'HAS',
         'does': 'DOES',
         'make': 'MAKE',
@@ -180,17 +182,24 @@ class Lexer:
             elif self.current_char == ',':
                 tokens.append(Token('COMMA', ','))
                 self.advance()
-                if self.peek() == '>':
-                    tokens.append(Token('ACCESS', '~>'))
+                # The original code had a block here for '~>' access which is now handled by the '~' block.
+                # The original code also had a deprecated dot access error here, which is now handled by the '.' block.
+            elif self.current_char == '.':
+                dot_count = 0
+                while self.current_char == '.':
+                    dot_count += 1
                     self.advance()
-                    self.advance()
-                else: 
-                     # Deprecated dot access and range
-                     # Show context
-                     start = max(0, self.position - 10)
-                     end = min(len(self.source_code), self.position + 10)
-                     context = self.source_code[start:end]
-                     raise Exception(f"Unexpected character '.' at pos {self.position} near '{context}' (Use '~>' for access)")
+                
+                if dot_count == 2:
+                    tokens.append(Token('RANGE', '..'))
+                elif dot_count >= 3:
+                    tokens.append(Token('ELLIPSIS', '.' * dot_count))
+                else:
+                    # Deprecated dot access (single dot)
+                    start = max(0, self.position - 10)
+                    end = min(len(self.source_code), self.position + 10)
+                    context = self.source_code[start:end]
+                    raise Exception(f"Unexpected character '.' at pos {self.position} near '{context}' (Use '~>' for access)")
             elif self.current_char == '~':
                 if self.peek() == '>':
                     tokens.append(Token('ACCESS', '~>'))

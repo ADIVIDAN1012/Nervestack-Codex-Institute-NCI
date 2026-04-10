@@ -1,3 +1,3 @@
 
 int FindFunction_WhichIsBroken(int NumberToFind);
-int FunctionWhichReturnsLocalVariable(void);
+int FunctionWhichReturNSPLocalVariable(void);

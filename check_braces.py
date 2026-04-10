@@ -22,4 +22,4 @@ def check_braces(filename):
     else:
         print("Braces are balanced.")
 
-check_braces(r'c:\Users\aadit\OneDrive\Desktop\project_2_Beacon\src\runtime\main.c')
+check_braces(r'c:\Users\aadit\OneDrive\Desktop\project_2_Nervestack\src\runtime\main.c')

@@ -40,8 +40,8 @@ def convert_pdf_to_pptx(pdf_path, pptx_path):
         print(f"Error converting PDF: {e}")
 
 if __name__ == "__main__":
-    pdf_file = "Beacon Programming Language (Text Only).pdf"
-    pptx_file = "Beacon_Programming_Language.pptx"
+    pdf_file = "Nervestack Programming Language (Text Only).pdf"
+    pptx_file = "Nervestack_Programming_Language.pptx"
     
     if os.path.exists(pdf_file):
         convert_pdf_to_pptx(pdf_file, pptx_file)

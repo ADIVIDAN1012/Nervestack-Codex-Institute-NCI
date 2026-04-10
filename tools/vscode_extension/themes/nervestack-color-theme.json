@@ -1,5 +1,5 @@
 {
-  "name": "Beacon Dark",
+  "name": "Nervestack Dark",
   "type": "dark",
   "colors": {
     "editor.background": "#1e293b",
@@ -18,51 +18,51 @@
       }
     },
     {
-      "scope": "keyword.control.beacon",
+      "scope": "keyword.control.nervestack",
       "settings": {
         "foreground": "#fbbf24",
         "fontStyle": "bold"
       }
     },
     {
-      "scope": "keyword.other.beacon",
+      "scope": "keyword.other.nervestack",
       "settings": {
         "foreground": "#f59e0b"
       }
     },
     {
-      "scope": "storage.type.beacon",
+      "scope": "storage.type.nervestack",
       "settings": {
         "foreground": "#2dd4bf",
         "fontStyle": "bold"
       }
     },
     {
-      "scope": "string.quoted.double.beacon",
+      "scope": "string.quoted.double.nervestack",
       "settings": {
         "foreground": "#38bdf8"
       }
     },
     {
-      "scope": "constant.numeric.beacon",
+      "scope": "constant.numeric.nervestack",
       "settings": {
         "foreground": "#a78bfa"
       }
     },
     {
-      "scope": "constant.language.beacon",
+      "scope": "constant.language.nervestack",
       "settings": {
         "foreground": "#f472b6"
       }
     },
     {
-      "scope": "support.function.beacon",
+      "scope": "support.function.nervestack",
       "settings": {
         "foreground": "#818cf8"
       }
     },
     {
-      "scope": "keyword.operator.beacon",
+      "scope": "keyword.operator.nervestack",
       "settings": {
         "foreground": "#94a3b8"
       }

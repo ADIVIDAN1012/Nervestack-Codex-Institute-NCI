@@ -265,8 +265,15 @@ class Parser:
 
     def parse_traverse_statement(self):
         self.eat('TRAVERSE')
-        var_name = self.current_token.value
-        self.eat('WORD')
+        
+        # Allow .. or ... as dummy variable name
+        if self.current_token.type in ('RANGE', 'ELLIPSIS'):
+            var_name = "_"
+            self.advance()
+        else:
+            var_name = self.current_token.value
+            self.eat('WORD')
+            
         self.eat('FROM')
         start_val = self.expression()
         self.eat('TO')

@@ -30,13 +30,13 @@ const keywordDescriptions: { [key: string]: string } = {
 };
 
 export function activate(context: vscode.ExtensionContext) {
-    const completionProvider = vscode.languages.registerCompletionItemProvider('beacon', {
+    const completionProvider = vscode.languages.registerCompletionItemProvider('nervestack', {
         provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
             return allKeywords.map(keyword => new vscode.CompletionItem(keyword, vscode.CompletionItemKind.Keyword));
         }
     });
 
-    const hoverProvider = vscode.languages.registerHoverProvider('beacon', {
+    const hoverProvider = vscode.languages.registerHoverProvider('nervestack', {
         provideHover(document: vscode.TextDocument, position: vscode.Position) {
             const range = document.getWordRangeAtPosition(position);
             const word = document.getText(range);

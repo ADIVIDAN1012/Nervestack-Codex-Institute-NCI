@@ -26,7 +26,7 @@ def compile_and_run(filename):
             json.dump(ast.to_dict(), f, indent=2)
             
         print(f"Running {json_file}...")
-        result = subprocess.run(['src/runtime/BPL.exe', json_file], capture_output=True, text=True)
+        result = subprocess.run(['src/runtime/NSPL.exe', json_file], capture_output=True, text=True)
         print(result.stdout)
         if result.stderr:
             print("Errors:", result.stderr)
@@ -37,4 +37,4 @@ def compile_and_run(filename):
         traceback.print_exc()
 
 if __name__ == "__main__":
-    compile_and_run("test_traverse.bpl")
+    compile_and_run("test_traverse.nspl")

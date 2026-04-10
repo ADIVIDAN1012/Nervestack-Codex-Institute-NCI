@@ -1,0 +1,75 @@
+### PPT GENERATION PROMPT: Nervestack (The Cool Version for Suvee)
+
+**Target Audience:** Classmate/Friend (Presenter: Aaditya Sadhu | Recipient: Suvee)
+**Goal:** Explain what I've been building with Nervestack in a way that's actually fun to look at.
+**Tone:** Casual, Enthusiastic, Friendly, "Check this out!" vibes.
+**Theme:** "Neon Neural" - Sleek dark mode, popping electric blue and purple accents, clean rounded fonts, and some cool geometric/abstract shapes.
+
+---
+
+#### Slide 1: Welcome!
+- **Main Heading:** Hey Suvee! Check out Nervestack 🚀
+- **Sub-heading:** Bringing some "Neural" vibes to coding.
+- **Footer:** Built with ❤️ at the Nervestack Codex Institute (NCI) | By Aaditya Sadhu
+
+#### Slide 2: What is this thing?
+- **Heading:** The Vibe: UOP
+- **Content:**
+    - So, I'm working on something called **Universal User-oriented Programming**.
+    - Basically, making code that actually makes sense when you read it.
+    - We moved from the old "Nervestack" engine to this new **Nervestack** beast.
+
+#### Slide 3: Our Secret Lab (NCI)
+- **Heading:** The Nervestack Codex Institute
+- **Content:**
+    - It's like my own research hub for making code look and feel premium.
+    - Mission: "Alive" code—stuff that's responsive, safe, and honestly just looks dope.
+
+#### Slide 4: Variable Magic
+- **Heading:** `firm` and `show`
+- **Content:**
+    - Use `firm` to lock in variables. It's solid.
+    - Everything is dynamic and just works.
+    - `show` is how we talk to the user—no more boring print statements.
+
+#### Slide 5: Smart Logic
+- **Heading:** No more If/Else—Try `when`/`otherwise`
+- **Content:**
+    - `when` something happens, we do this. `otherwise`, we do that. Simple, right?
+    - `traverse`: The ultimate loop for going through ranges.
+    - Even booleans are cool now: `On` and `Off`.
+
+#### Slide 6: The "Object" Stuff
+- **Heading:** Blueprints & Fancy Accessors
+- **Content:**
+    - I use `blueprint` instead of classes. Classy, I know.
+    - **Check this out:** I use `~>` to grab attributes. It's like a neural link!
+    - Instantly `spawn` objects whenever you need 'em.
+
+#### Slide 7: The "Dot" Innovation (Wait, this is cool)
+- **Heading:** The "As Much Dot As You Want" Placeholder
+- **Content:**
+    - You know how in Python you use `_` when you don't care about a variable?
+    - In Nervestack, you just use dots! `..`, `...`, whatever you feel like.
+    - `traverse .. from 1 to 10` — no variable needed, just loops.
+
+#### Slide 8: It Actually Works!
+- **Heading:** 100% Stable
+- **Content:**
+    - Passed all the stress tests: `demo_100.ns`, `test_placeholder.ns`, the works.
+    - I've got like 36+ working demos ready to roll.
+    - Output is super clean (no weird .0 decimals everywhere).
+
+#### Slide 9: What's Next?
+- **Heading:** The 2026 Roadmap
+- **Content:**
+    - Adding some crazy parallel execution (`paral`).
+    - Event-driven signals and listeners.
+    - Maybe a super fast C backend if I get time.
+
+#### Slide 10: That's A Wrap!
+- **Heading:** Code as Art
+- **Content:**
+    - Nervestack is officially live and stable.
+    - Hit me up if you want to see the compiler in action!
+    - **Closing:** Thanks for listening, Suvee! ✌️

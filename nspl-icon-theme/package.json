@@ -1,0 +1,18 @@
+{
+  "name": "nspl-icon-theme",
+  "displayName": "Nervestack Icon Theme",
+  "description": "An icon theme for Nervestack (.nspl) files.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "nspl-icon-theme",
+        "label": "Nervestack Icons",
+        "path": "./nspl-theme.json"
+      }
+    ]
+  }
+}

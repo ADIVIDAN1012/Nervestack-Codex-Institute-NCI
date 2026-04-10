@@ -48,7 +48,7 @@
           "const_name": "name",
           "value": {
             "type": "StringNode",
-            "value": "Beacon"
+            "value": "Nervestack"
           }
         },
         {

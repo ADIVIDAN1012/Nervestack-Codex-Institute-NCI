@@ -1,12 +1,12 @@
 # Enable GitHub Pages for Nervestack Website
 
 ## ✅ Your code is now on GitHub!
-Repository: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-BCE
+Repository: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI
 
 ## Next Steps: Enable GitHub Pages
 
 ### 1. Go to Repository Settings
-1. Open: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-BCE
+1. Open: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI
 2. Click **Settings** (top right)
 3. Click **Pages** (left sidebar)
 
@@ -22,12 +22,12 @@ Repository: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-BCE
 
 ### 4. Your Website Will Be Live At:
 ```
-https://adividan1012.github.io/Nervestack-Labs/Nervestack-website/
+https://adividan1012.github.io/Nervestack-NCI/Nervestack-website/
 ```
 
 Or if you selected root:
 ```
-https://adividan1012.github.io/Nervestack-Labs/
+https://adividan1012.github.io/Nervestack-NCI/
 ```
 
 ## Optional: Custom Domain (Free)
@@ -52,7 +52,7 @@ If you want a custom domain later:
 4. Once approved: `Nervestacklang.is-a.dev`
 
 ### Option 2: Keep GitHub Subdomain
-- `adividan1012.github.io/Nervestack-Labs/Nervestack-website/`
+- `adividan1012.github.io/Nervestack-NCI/Nervestack-website/`
 - Completely free forever
 - No setup needed
 
@@ -79,13 +79,13 @@ Once your site is live, update the download links in `index.html`:
 
 ```html
 <!-- Change to GitHub releases -->
-<a href="https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-BCE/releases/download/v1.0/Nervestack.exe">
+<a href="https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/download/v1.0/Nervestack.exe">
     Download Compiler
 </a>
 ```
 
 To create a release:
-1. Go to: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-BCE/releases/new
+1. Go to: https://github.com/ADIVIDAN1012/Nervestack-Code-Engine-NCI/releases/new
 2. Tag: `v1.0`
 3. Title: `Nervestack v1.0`
 4. Upload `Nervestack.exe` and `Nervestack-0.0.3.vsix`

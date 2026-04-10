@@ -2,7 +2,7 @@ spec main:
     show "--- Testing Basics ---"
     show "1. Variables & Types"
     firm pi = 3.14
-    count = 0
+    firm count = 0
     firm name = "Nervestack"
     firm is_active = On
     
@@ -19,10 +19,10 @@ spec main:
     show "10 * 5 = |val1 * val2|"
     show "10 / 5 = |val1 / val2|"
     
-    show "3. Control Flow (when/otherwise)"
-    when count == 0:
+    show "3. Control Flow"
+    when (count == 0):
         show "Count is zero (Correct)"
-    otherwise when count > 0:
+    otherwise when (count > 0):
         show "Count is positive (Incorrect)"
     otherwise:
         show "Count is negative (Incorrect)"
@@ -40,4 +40,4 @@ spec add with v1, v2:
     forward v1 + v2
 done
 
-main()
+funcall main

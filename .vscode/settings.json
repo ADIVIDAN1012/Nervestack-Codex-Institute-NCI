@@ -1,9 +1,9 @@
 {
     "code-runner.executorMap": {
-        "beacon": "py -u \"$workspaceRoot\\\\compiler_frontend_py\\\\frontend.py\" \"$fullFileName\""
+        "nervestack": "py -u \"$workspaceRoot\\\\compiler_frontend_py\\\\frontend.py\" \"$fullFileName\""
     },
     "code-runner.executorMapByFileExtension": {
-        ".bpl": "py -u \"$workspaceRoot\\\\compiler_frontend_py\\\\frontend.py\" \"$fullFileName\""
+        ".nspl": "py -u \"$workspaceRoot\\\\compiler_frontend_py\\\\frontend.py\" \"$fullFileName\""
     },
     "code-runner.fileDirectoryAsCwd": true
 }

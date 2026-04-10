@@ -34,12 +34,12 @@ def compile_to_json(filename, output_filename=None):
         return None
 
 if __name__ == "__main__":
-    test_json = compile_to_json("test_oop.bpl")
+    test_json = compile_to_json("test_oop.nspl")
     if not test_json:
         sys.exit(1)
         
     print("\n--- Executing Runtime ---")
-    result = subprocess.run(['src/runtime/BPL.exe', test_json], capture_output=True, text=True)
+    result = subprocess.run(['src/runtime/NSPL.exe', test_json], capture_output=True, text=True)
     print(result.stdout)
     if result.stderr:
         print("Errors:")

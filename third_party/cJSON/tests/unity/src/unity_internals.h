@@ -36,7 +36,7 @@
 
 /* Determine the size of an int, if not already specified.
  * We cannot use sizeof(int), because it is not yet defined
- * at this stage in the translation of the C program.
+ * at this stage in the traNSPLation of the C program.
  * Therefore, infer it from UINT_MAX if possible. */
 #ifndef UNITY_INT_WIDTH
   #ifdef UINT_MAX

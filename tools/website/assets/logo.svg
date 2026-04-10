@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Glow -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="n-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea" />
+      <stop offset="100%" stop-color="#00ffff" />
+    </linearGradient>
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background circle for logo context -->
+  <circle cx="256" cy="256" r="240" fill="url(#glow)" />
+
+  <!-- Stylized "N" (Nervestack) -->
+  <g filter="url(#neon-glow)">
+    <path d="M140 380V130H200L312 300V130H372V380H312L200 210V380H140Z" fill="url(#n-gradient)" />
+    
+    <!-- Neural Node Points -->
+    <circle cx="140" cy="130" r="12" fill="#667eea" />
+    <circle cx="372" cy="380" r="12" fill="#00ffff" />
+    <circle cx="256" cy="256" r="8" fill="white" fill-opacity="0.8" />
+  </g>
+
+  <!-- Speed Streak (The "Fastest" representation) -->
+  <path d="M100 420H412" stroke="url(#n-gradient)" stroke-width="4" stroke-linecap="round" opacity="0.6" />
+  <path d="M150 440H362" stroke="#00ffff" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+</svg>

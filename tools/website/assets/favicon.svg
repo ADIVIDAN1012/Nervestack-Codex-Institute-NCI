@@ -1,12 +1,20 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="n-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="icon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#667eea" />
       <stop offset="100%" stop-color="#00ffff" />
     </linearGradient>
   </defs>
-  <!-- Simplified "N" for small icon -->
-  <path d="M15 50V14H24L40 36V14H49V50H40L24 28V50H15Z" fill="url(#n-grad)" />
-  <circle cx="15" cy="14" r="3" fill="#667eea" />
-  <circle cx="49" cy="50" r="3" fill="#00ffff" />
+  <!-- Dark Rounded Background -->
+  <rect width="64" height="64" rx="16" fill="#0d1117" />
+  
+  <!-- Glowing "N" with Synapse Center -->
+  <path d="M18 46V18H26L38 36V18H46V46H38L26 28V46H18Z" fill="url(#icon-grad)" />
+  
+  <!-- Neural Connectivity Point -->
+  <circle cx="32" cy="32" r="4" fill="white" />
+  <circle cx="32" cy="32" r="8" stroke="white" stroke-opacity="0.3" stroke-width="1" />
+  
+  <!-- Edge Highlight -->
+  <rect x="1" y="1" width="62" height="62" rx="15" stroke="url(#icon-grad)" stroke-opacity="0.2" stroke-width="2" />
 </svg>
